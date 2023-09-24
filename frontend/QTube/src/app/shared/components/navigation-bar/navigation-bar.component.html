@@ -1,0 +1,28 @@
+<nav
+  class="fixed top-0 flex items-center justify-between w-screen py-1 pl-2 pr-4"
+>
+  <div class="flex items-center justify-center gap-2 justify-self-start">
+    <app-drawer></app-drawer>
+    <app-brand></app-brand>
+  </div>
+  <div class="hidden lg:block">
+    <app-search-bar></app-search-bar>
+  </div>
+  <div class="flex items-center justify-center gap-[17px] justify-self-end">
+    <div class="flex gap-[6.5px]">
+      <div class="block lg:hidden">
+        <app-rounded-button
+          [img]="'assets/img/svg/lens.svg'"
+          [alt]="'Search'"
+        ></app-rounded-button>
+      </div>
+      <app-rounded-button
+        [img]="'assets/img/svg/video.svg'"
+        [alt]="'Create'"
+      ></app-rounded-button>
+    </div>
+    <app-profile-button
+      [img]="'assets/img/default-profile-picture.jpg'"
+    ></app-profile-button>
+  </div>
+</nav>
