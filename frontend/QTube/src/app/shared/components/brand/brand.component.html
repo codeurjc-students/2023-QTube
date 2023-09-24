@@ -3,11 +3,13 @@
   class="flex gap-[3px] items-center justify-center cursor-pointer"
 >
   <img
-    src="assets/img/svg/brand.svg"
-    alt="Brand"
+    [src]="svgPath + 'brand.svg'"
+    alt="QTube"
     class="w-[30px] pointer-events-none"
   />
-  <h1 class="font-medium text-[22px] tracking-tighter pb-1 text-white">
+  <h1
+    class="font-[550] text-[22px] tracking-tighter text-white pt-[2px] hidden xs:block"
+  >
     QTube
   </h1>
 </a>

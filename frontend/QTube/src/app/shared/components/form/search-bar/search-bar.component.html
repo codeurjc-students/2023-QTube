@@ -3,13 +3,13 @@
     type="text"
     name="search"
     id="search"
-    placeholder="Search on QTube"
-    class="pl-6 pr-96 py-2 rounded-l-full bg-qt-black-2 border border-qt-gray-2 text-white placeholder-[#888888] focus:border-[#065FD4] focus:outline-none text-white"
+    placeholder="Search"
+    class="pl-6 pr-96 py-2 pb-[7px] rounded-l-full bg-qt-black-2 border border-qt-gray-2 text-white placeholder-[#888888] placeholder focus:border-[#065FD4] focus:outline-none"
   />
   <button
     type="submit"
     class="px-4 border-t border-b border-r rounded-r-full border-qt-gray-2 bg-qt-black-3"
   >
-    <img src="assets/img/svg/lens.svg" alt="Lens" class="w-6" />
+    <img [src]="svgPath + 'search.svg'" alt="Search" class="w-6" />
   </button>
 </form>

@@ -1,8 +1,13 @@
 <nav
-  class="fixed top-0 flex items-center justify-between w-screen py-3 pl-2 pr-4 lg:pr-[18px] sm:py-1"
+  class="sticky top-0 flex items-center justify-between w-screen pt-3 pb-6 pl-5 pr-3 sm:px-8 bg-qt-black"
 >
-  <div class="flex items-center justify-center gap-2 justify-self-start">
-    <app-drawer></app-drawer>
+  <div class="flex items-center justify-center gap-5 justify-self-start">
+    <app-rounded-button
+      [img]="'hamburguer.svg'"
+      [title]="'Open drawer'"
+      class="hidden sm:block"
+      (click)="toggleDrawer()"
+    ></app-rounded-button>
     <app-brand></app-brand>
   </div>
   <div class="hidden lg:block">
@@ -10,19 +15,24 @@
   </div>
   <div class="flex items-center justify-center gap-[17px] justify-self-end">
     <div class="flex gap-[6.5px]">
-      <div class="block lg:hidden">
-        <app-rounded-button
-          [img]="'assets/img/svg/lens.svg'"
-          [alt]="'Search'"
-        ></app-rounded-button>
-      </div>
       <app-rounded-button
-        [img]="'assets/img/svg/video.svg'"
-        [alt]="'Create'"
+        [img]="'search.svg'"
+        [title]="'Search'"
+        class="block lg:hidden"
+      ></app-rounded-button>
+      <app-rounded-button
+        [img]="'create.svg'"
+        [title]="'Create'"
       ></app-rounded-button>
     </div>
     <app-profile-button
-      [img]="'assets/img/default-profile-picture.jpg'"
+      [routerLink]=""
+      [img]="'default-profile-picture.jpg'"
     ></app-profile-button>
+    <app-rounded-button
+      [img]="'log-out.svg'"
+      [title]="'Log out'"
+      class="block sm:hidden"
+    ></app-rounded-button>
   </div>
 </nav>

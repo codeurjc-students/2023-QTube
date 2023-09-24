@@ -13,12 +13,21 @@ module.exports = {
         "qt-gray": "#272727",
         "qt-gray-2": "#3F3F3F",
         "qt-gray-3": "#888888",
+        "qt-gray-4": "rgba(255, 255, 255, 0.2)",
+        "qt-gray-5": "#AAAAAA",
   
         "qt-blue": "#065FD4",
+      },
+      screens: {
+        "xs": "375px",  
+      },
+      containers: {
+        "4xs": "100px",
       },
     },
   },
   plugins: [
-    require("tailwindcss-animated")
+    require('@tailwindcss/container-queries'),
+    require("tailwindcss-animated"),
   ],
 }
