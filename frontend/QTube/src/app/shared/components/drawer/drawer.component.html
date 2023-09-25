@@ -28,14 +28,18 @@
       },
     ]"
       >
-        <app-drawer-button
-          [img]="element.svg"
-          [link]="element.link"
-          [title]="element.title"
-        ></app-drawer-button>
+        <app-drawer-button [link]="element.link" [title]="element.title">
+          <img
+            [src]="svgPath + element.svg"
+            alt="{{ element.title }}"
+            class="w-[26px]"
+          />
+        </app-drawer-button>
       </li>
     </ul>
+
     <app-drawer-bar></app-drawer-bar>
+
     <ul class="flex flex-col gap-3">
       <li
         *ngFor="let element of [
@@ -61,15 +65,19 @@
         },
       ]"
       >
-        <app-drawer-button
-          [img]="element.svg"
-          [link]="element.link"
-          [title]="element.title"
-        ></app-drawer-button>
+        <app-drawer-button [link]="element.link" [title]="element.title">
+          <img
+            [src]="svgPath + element.svg"
+            alt="{{ element.title }}"
+            class="w-[26px]"
+          />
+        </app-drawer-button>
       </li>
     </ul>
+
     <div class="hidden @4xs/wrapper:block">
       <app-drawer-bar></app-drawer-bar>
+
       <ul class="flex flex-col gap-[6px]">
         <li>
           <h2 class="text-white px-[0.859em] pt-[0.625em] pb-1">Subscribed</h2>
@@ -94,14 +102,18 @@
         ]
         "
         >
-          <app-drawer-channel
-            [img]="element.img"
-            [title]="element.title"
-            [link]="element.link"
-          ></app-drawer-channel>
+          <app-drawer-button [title]="element.title" [link]="element.link">
+            <img
+              [src]="imagePath + element.img"
+              alt="{{ element.title }}"
+              class="object-cover w-6 rounded-full"
+            />
+          </app-drawer-button>
         </li>
       </ul>
+
       <app-drawer-bar></app-drawer-bar>
+
       <ul class="flex flex-col gap-[6px]">
         <li>
           <h2 class="text-white px-[0.859em] pt-[0.625em] pb-1">Playlists</h2>
@@ -123,13 +135,18 @@
         ]
         "
         >
-          <app-drawer-playlist
-            [title]="element.title"
-            [link]="element.link"
-          ></app-drawer-playlist>
+          <app-drawer-button [title]="element.title" [link]="element.link">
+            <img
+              [src]="svgPath + 'playlist.svg'"
+              alt="{{ element.title }}"
+              class="w-[26px]"
+            />
+          </app-drawer-button>
         </li>
       </ul>
+
       <app-drawer-bar></app-drawer-bar>
+
       <app-drawer-footer></app-drawer-footer>
     </div>
   </div>
