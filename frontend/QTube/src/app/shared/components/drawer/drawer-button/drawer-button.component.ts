@@ -10,8 +10,5 @@ export class DrawerButtonComponent {
   readonly svgPath = SVG_PATH;
 
   @Input()
-  link = '';
-
-  @Input()
   title = '';
 }

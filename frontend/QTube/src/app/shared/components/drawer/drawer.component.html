@@ -28,7 +28,7 @@
       },
     ]"
       >
-        <app-drawer-button [link]="element.link" [title]="element.title">
+        <app-drawer-button [routerLink]="element.link" [title]="element.title">
           <img
             [src]="svgPath + element.svg"
             alt="{{ element.title }}"
@@ -65,7 +65,7 @@
         },
       ]"
       >
-        <app-drawer-button [link]="element.link" [title]="element.title">
+        <app-drawer-button [routerLink]="element.link" [title]="element.title">
           <img
             [src]="svgPath + element.svg"
             alt="{{ element.title }}"
@@ -102,7 +102,10 @@
         ]
         "
         >
-          <app-drawer-button [title]="element.title" [link]="element.link">
+          <app-drawer-button
+            [title]="element.title"
+            [routerLink]="element.link"
+          >
             <img
               [src]="imagePath + element.img"
               alt="{{ element.title }}"
@@ -135,7 +138,10 @@
         ]
         "
         >
-          <app-drawer-button [title]="element.title" [link]="element.link">
+          <app-drawer-button
+            [title]="element.title"
+            [routerLink]="element.link"
+          >
             <img
               [src]="svgPath + 'playlist.svg'"
               alt="{{ element.title }}"

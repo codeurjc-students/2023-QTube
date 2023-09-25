@@ -15,11 +15,13 @@
   </div>
   <div class="flex items-center justify-center gap-[17px] justify-self-end">
     <app-rounded-button
+      [routerLink]=""
       [img]="'search.svg'"
       [title]="'Search'"
       class="block lg:hidden"
     ></app-rounded-button>
     <app-rounded-button
+      [routerLink]=""
       [img]="'create.svg'"
       [title]="'Create'"
     ></app-rounded-button>
@@ -28,6 +30,7 @@
       [img]="'default-profile-picture.jpg'"
     ></app-profile-button>
     <app-rounded-button
+      [routerLink]=""
       [img]="'log-out.svg'"
       [title]="'Log out'"
       class="block sm:hidden"
