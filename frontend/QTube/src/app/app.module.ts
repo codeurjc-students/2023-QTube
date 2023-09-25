@@ -12,7 +12,8 @@ import { RoundedButtonComponent } from './shared/components/buttons/rounded-butt
 import { ProfileButtonComponent } from './shared/components/buttons/profile-button/profile-button.component';
 import { DrawerButtonComponent } from './shared/components/drawer/drawer-button/drawer-button.component';
 import { DrawerBarComponent } from './shared/components/drawer/drawer-bar/drawer-bar.component';
-import { DrawerFooterComponent } from './shared/components/drawer/drawer-footer/drawer-footer.component';
+import { LoginButtonComponent } from './shared/components/buttons/login-button/login-button.component';
+import { DrawerContainerComponent } from './shared/components/drawer/drawer-container/drawer-container.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DrawerFooterComponent } from './shared/components/drawer/drawer-footer/
     ProfileButtonComponent,
     DrawerButtonComponent,
     DrawerBarComponent,
-    DrawerFooterComponent,
+    LoginButtonComponent,
+    DrawerContainerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

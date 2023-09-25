@@ -18,6 +18,9 @@ module.exports = {
         "qt-gray-6": "hsl(0, 0%, 18.82%)",
   
         "qt-blue": "#065FD4",
+        "qt-blue-2": "#3EA6FF",
+        "qt-blue-3": "#263850",
+        "qt-blue-4": "#3C4C62",
       },
       screens: {
         "xs": "375px",  
