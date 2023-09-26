@@ -30,12 +30,15 @@ module.exports = {
         "drawer-y": ".578em",
       },
       containers: {
-        "4xs": "100px",
+        "drawer-xs": "78px",
       },
+      width: {
+        "drawer-xs": "78px",
+        "drawer": "225px",
+      }
     },
   },
   plugins: [
     require("@tailwindcss/container-queries"),
-    require("tailwindcss-animated"),
   ],
 }

@@ -1,7 +1,7 @@
 <nav
-  class="sticky top-0 flex items-center justify-between w-screen pt-2 pb-6 pl-5 pr-3 sm:px-[1.125em] bg-qt-black"
+  class="sticky top-0 z-10 flex items-center justify-between w-full pt-4 pb-6 pl-5 pr-3 sm:pl-[18px] sm:pr-[23px] bg-qt-black"
 >
-  <div class="flex items-center justify-center gap-3 justify-self-start">
+  <div class="flex items-center gap-3 justify-self-start">
     <app-rounded-button
       [img]="'hamburguer.svg'"
       [title]="'Open drawer'"
@@ -10,10 +10,10 @@
     ></app-rounded-button>
     <app-brand></app-brand>
   </div>
-  <div class="hidden lg:block">
-    <app-search-bar></app-search-bar>
-  </div>
-  <div class="flex items-center justify-center gap-[17px] justify-self-end">
+
+  <app-search-bar class="hidden lg:block"></app-search-bar>
+
+  <div class="flex items-center gap-[17px] justify-self-end">
     <app-rounded-button
       [routerLink]=""
       [img]="'search.svg'"
@@ -36,7 +36,9 @@
       class="block sm:hidden"
     ></app-rounded-button>
   </div>
-  <div class="hidden justify-self-end">
-    <app-login-button [routerLink]=""></app-login-button>
-  </div>
+
+  <app-login-button
+    [routerLink]=""
+    class="hidden justify-self-end"
+  ></app-login-button>
 </nav>
