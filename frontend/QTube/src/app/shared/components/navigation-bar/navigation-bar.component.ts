@@ -13,7 +13,7 @@ export class NavigationBarComponent {
    */
   toggleDrawer() {
     const drawer = document.querySelector('#drawer') as HTMLElement;
-    drawer.classList.toggle('max-w-[245px]');
-    drawer.classList.toggle('max-w-[100px]');
+    drawer.classList.toggle('max-w-[225px]');
+    drawer.classList.toggle('max-w-[78px]');
   }
 }

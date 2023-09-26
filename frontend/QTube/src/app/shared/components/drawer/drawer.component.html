@@ -1,32 +1,42 @@
 <aside
   id="drawer"
-  class="@container/drawer hidden fixed left-0 max-w-[245px] sm:block px-3 w-full h-full overflow-y-scroll pb-60"
+  class="hidden fixed left-0 w-full max-w-[225px] sm:block h-screen overflow-y-scroll pb-60"
 >
-  <div class="@4xs/drawer:pl-3 @container/wrapper">
+  <div class="px-3 @container/drawer">
     <ul class="flex flex-col gap-3">
       <li
         *ngFor="let element of [
-      {
-        svg: 'home.svg',
-        link: '/',
-        title: 'Home',
-      },
-      {
-        svg: 'subscriptions.svg',
-        link: '/subscriptions',
-        title: 'Subscriptions',
-      },
-      {
-        svg: 'profile.svg',
-        link: '/profile',
-        title: 'Profile',
-      },
-      {
-        svg: 'log-out.svg',
-        link: '/logout',
-        title: 'Log out',
-      },
-    ]"
+          {
+            svg: 'home.svg',
+            link: '/',
+            title: 'Home',
+          },
+          {
+            svg: 'subscriptions.svg',
+            link: '/subscriptions',
+            title: 'Subscriptions',
+          },
+          {
+            svg: 'tendencies.svg',
+            link: '/tendencies',
+            title: 'Tendencies',
+          },
+          {
+            svg: 'playlists.svg',
+            link: '/playlists',
+            title: 'Playlists',
+          },
+          {
+            svg: 'watch-later.svg',
+            link: '/watch-later',
+            title: 'Watch later',
+          },
+          {
+            svg: 'liked.svg',
+            link: '/liked',
+            title: 'Liked videos',
+          }
+        ]"
       >
         <app-drawer-button [routerLink]="element.link" [title]="element.title">
           <img
@@ -37,157 +47,5 @@
         </app-drawer-button>
       </li>
     </ul>
-
-    <app-drawer-bar></app-drawer-bar>
-
-    <app-drawer-container>
-      <div class="flex flex-col items-center justify-center gap-4">
-        <p
-          class="text-xs text-center text-qt-gray-5 font-medium pt-[0.625em] px-2"
-        >
-          Sign in to like videos, add comments, and subscribe to channels.
-        </p>
-        <app-login-button
-          [routerLink]=""
-          class="mb-[0.4375em]"
-        ></app-login-button>
-      </div>
-    </app-drawer-container>
-
-    <app-drawer-bar></app-drawer-bar>
-
-    <ul class="flex flex-col gap-3">
-      <li
-        *ngFor="let element of [
-        {
-          svg: 'tendencies.svg',
-          link: '/tendencies',
-          title: 'Tendencies',
-        },
-        {
-          svg: 'playlists.svg',
-          link: '/playlists',
-          title: 'Playlists',
-        },
-        {
-          svg: 'watch-later.svg',
-          link: '/watch-later',
-          title: 'Watch later',
-        },
-        {
-          svg: 'liked.svg',
-          link: '/liked',
-          title: 'Liked videos',
-        },
-      ]"
-      >
-        <app-drawer-button [routerLink]="element.link" [title]="element.title">
-          <img
-            [src]="svgPath + element.svg"
-            alt="{{ element.title }}"
-            class="w-[26px]"
-          />
-        </app-drawer-button>
-      </li>
-    </ul>
-
-    <div class="hidden @4xs/wrapper:block">
-      <app-drawer-bar></app-drawer-bar>
-
-      <ul class="flex flex-col gap-[6px]">
-        <li>
-          <h2 class="text-white px-[0.859em] pt-[0.625em] pb-1">Subscribed</h2>
-        </li>
-        <li
-          *ngFor="let element of [
-          {
-            img: 'default-profile-picture.jpg',
-            title: 'antonioalanxs',
-            link: '/antonioalanxs',
-          },
-          {
-            img: 'default-profile-picture.jpg',
-            title: 'antonioalanxs',
-            link: '/antonioalanxs',
-          },
-          {
-            img: 'default-profile-picture.jpg',
-            title: 'michiminina',
-            link: '/antonioalanxs',
-          },
-        ]
-        "
-        >
-          <app-drawer-button
-            [title]="element.title"
-            [routerLink]="element.link"
-          >
-            <img
-              [src]="imagePath + element.img"
-              alt="{{ element.title }}"
-              class="object-cover w-6 rounded-full"
-            />
-          </app-drawer-button>
-        </li>
-      </ul>
-
-      <app-drawer-bar></app-drawer-bar>
-
-      <ul class="flex flex-col gap-[6px]">
-        <li>
-          <h2 class="text-white px-[0.859em] pt-[0.625em] pb-1">Playlists</h2>
-        </li>
-        <li
-          *ngFor="let element of [
-          {
-            title: 'cristina',
-            link: '/playlist/cristina',
-          },
-          {
-            title: 'guillermo',
-            link: 'playlist/',
-          },
-          {
-            title: 'michiminina',
-            link: 'playlist/michiminina',
-          },
-        ]
-        "
-        >
-          <app-drawer-button
-            [title]="element.title"
-            [routerLink]="element.link"
-          >
-            <img
-              [src]="svgPath + 'playlist.svg'"
-              alt="{{ element.title }}"
-              class="w-[26px]"
-            />
-          </app-drawer-button>
-        </li>
-      </ul>
-
-      <app-drawer-bar></app-drawer-bar>
-
-      <app-drawer-container>
-        <footer class="flex flex-col items-center justify-center gap-2">
-          <p
-            class="text-xs text-center text-qt-gray-5 font-medium pt-[0.625em]"
-          >
-            Thesis project.
-          </p>
-          <p class="text-xs font-medium text-center text-qt-gray-5">
-            Thanks to all my family and my roommates.
-          </p>
-          <a
-            href="https://github.com/antonioalanxs"
-            class="flex items-center justify-center gap-2"
-          >
-            <img [src]="svgPath + 'github.svg'" alt="GitHub" class="w-7" />
-            <span class="text-sm font-medium text-qt-blue">@antonioalanxs</span>
-          </a>
-        </footer>
-      </app-drawer-container>
-    </div>
   </div>
 </aside>
