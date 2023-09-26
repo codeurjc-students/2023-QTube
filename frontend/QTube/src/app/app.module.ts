@@ -13,6 +13,7 @@ import { ProfileButtonComponent } from './shared/components/buttons/profile-butt
 import { DrawerButtonComponent } from './shared/components/drawer/drawer-button/drawer-button.component';
 import { DrawerBarComponent } from './shared/components/drawer/drawer-bar/drawer-bar.component';
 import { LoginButtonComponent } from './shared/components/buttons/login-button/login-button.component';
+import { DrawerHeaderComponent } from './shared/components/drawer/drawer-header/drawer-header.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LoginButtonComponent } from './shared/components/buttons/login-button/l
     DrawerButtonComponent,
     DrawerBarComponent,
     LoginButtonComponent,
+    DrawerHeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

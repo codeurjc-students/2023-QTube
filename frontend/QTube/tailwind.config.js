@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
@@ -25,13 +25,17 @@ module.exports = {
       screens: {
         "xs": "375px",  
       },
+      spacing: {
+        "drawer-x": ".875em",
+        "drawer-y": ".578em",
+      },
       containers: {
         "4xs": "100px",
       },
     },
   },
   plugins: [
-    require('@tailwindcss/container-queries'),
+    require("@tailwindcss/container-queries"),
     require("tailwindcss-animated"),
   ],
 }

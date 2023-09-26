@@ -35,7 +35,7 @@
             svg: 'liked.svg',
             link: '/liked',
             title: 'Liked videos',
-          }
+          },
         ]"
       >
         <app-drawer-button [routerLink]="element.link" [title]="element.title">
@@ -47,5 +47,99 @@
         </app-drawer-button>
       </li>
     </ul>
+
+    <app-drawer-bar></app-drawer-bar>
+
+    <div
+      class="hidden @4xs/drawer:flex @4xs/drawer:flex-col @4xs/drawer:gap-4 @4xs/drawer:px-drawer-x @4xs/drawer:py-drawer-y"
+    >
+      <p class="text-xs font-medium text-qt-gray-5">
+        Sign in to like videos, add comments, and subscribe to channels.
+      </p>
+      <app-login-button [routerLink]=""></app-login-button>
+    </div>
+
+    <app-drawer-bar></app-drawer-bar>
+
+    <ul class="hidden @4xs/drawer:flex @4xs/drawer:flex-col @4xs/drawer:gap-1">
+      <li>
+        <app-drawer-header [title]="'Playlists'"></app-drawer-header>
+      </li>
+      <li
+        *ngFor="let element of [
+            {
+              svg: 'playlist.svg',
+              link: '/playlist/QTube',
+              title: 'QTube',
+            },
+            {
+              svg: 'playlist.svg',
+              link: '/playlist/Music',
+              title: 'Music',
+            },
+            {
+              svg: 'playlist.svg',
+              link: '/playlist/Alanís',
+              title: 'Alanís',
+            },
+          ]"
+      >
+        <app-drawer-button [routerLink]="element.link" [title]="element.title">
+          <img
+            [src]="svgPath + element.svg"
+            alt="{{ element.title }}"
+            class="w-[26px]"
+          />
+        </app-drawer-button>
+      </li>
+    </ul>
+
+    <app-drawer-bar></app-drawer-bar>
+
+    <ul class="hidden @4xs/drawer:flex @4xs/drawer:flex-col @4xs/drawer:gap-1">
+      <li>
+        <app-drawer-header [title]="'Subscribed'"></app-drawer-header>
+      </li>
+      <li
+        *ngFor="let element of [
+            {
+              img: 'alva-majo.jpg',
+              link: '/@AlvaMajo',
+              title: 'Alva Majo',
+            },
+            {
+              img: 'antonio-sarosi.jpg',
+              link: '/@AntonioSarosi',
+              title: 'Antonio Sarosi',
+            },
+            {
+              img: 'clavero.jpg',
+              link: '/@Clavero',
+              title: 'Clavero',
+            },
+            {
+              img: 'el-rubius.jpg',
+              link: '/@elrubiusOMG',
+              title: 'elrubiusOMG',
+            },
+          ]"
+      >
+        <app-drawer-button [routerLink]="element.link" [title]="element.title">
+          <img
+            [src]="imagePath + element.img"
+            alt="{{ element.title }}"
+            class="w-[26px] rounded-full object-cover"
+          />
+        </app-drawer-button>
+      </li>
+    </ul>
+
+    <app-drawer-bar></app-drawer-bar>
+
+    <div class="mt-3 @4xs/drawer:mt-0">
+      <app-drawer-button [routerLink]="'/logout'" [title]="'Log out'">
+        <img [src]="svgPath + 'log-out.svg'" alt="Log out" class="w-[26px]" />
+      </app-drawer-button>
+    </div>
   </div>
 </aside>
