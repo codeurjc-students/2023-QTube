@@ -23,7 +23,8 @@ module.exports = {
         "qt-blue-4": "#3C4C62",
       },
       screens: {
-        "xs": "375px",  
+        "2xs": "375px",
+        "xs": "425px",  
       },
       spacing: {
         "drawer-x": ".875em",

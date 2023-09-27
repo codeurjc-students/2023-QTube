@@ -1,9 +1,13 @@
 <div class="min-h-screen bg-qt-black">
   <app-navigation-bar></app-navigation-bar>
-  <div class="flex gap-2">
+  <div class="flex gap-1">
     <app-drawer></app-drawer>
-    <main class="flex justify-center flex-grow pt-36">
-      <h1 class="text-5xl font-bold text-white">Hello, World!</h1>
+    <main class="flex-grow">
+      <app-login-cta
+        [svg]="'subscriptions.svg'"
+        [title]="'Do not miss the new videos'"
+        [text]="'Log in to see what is new from your favorite QTube channels'"
+      ></app-login-cta>
     </main>
   </div>
 </div>

@@ -14,6 +14,7 @@ import { DrawerButtonComponent } from './shared/components/drawer/drawer-button/
 import { DrawerBarComponent } from './shared/components/drawer/drawer-bar/drawer-bar.component';
 import { LoginButtonComponent } from './shared/components/buttons/login-button/login-button.component';
 import { DrawerHeaderComponent } from './shared/components/drawer/drawer-header/drawer-header.component';
+import { LoginCtaComponent } from './shared/components/cta/login-cta/login-cta.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DrawerHeaderComponent } from './shared/components/drawer/drawer-header/
     DrawerBarComponent,
     LoginButtonComponent,
     DrawerHeaderComponent,
+    LoginCtaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

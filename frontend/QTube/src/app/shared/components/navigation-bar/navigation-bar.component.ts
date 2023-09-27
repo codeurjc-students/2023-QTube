@@ -12,8 +12,11 @@ export class NavigationBarComponent {
    * control the width of the drawer, effectively opening and closing it.
    */
   toggleDrawer() {
-    const drawer = document.querySelector('#drawer') as HTMLElement;
+    const drawerWrapper = document.querySelector('#drawer') as HTMLElement;
+    const drawer = document.querySelector('#drawer > div') as HTMLElement;
     drawer.classList.toggle('w-drawer');
+    drawerWrapper.classList.toggle('w-drawer');
     drawer.classList.toggle('w-drawer-xs');
+    drawerWrapper.classList.toggle('w-drawer-xs');
   }
 }
