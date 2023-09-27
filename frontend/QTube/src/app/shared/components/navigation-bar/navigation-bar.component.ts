@@ -14,9 +14,13 @@ export class NavigationBarComponent {
   toggleDrawer() {
     const drawerWrapper = document.querySelector('#drawer') as HTMLElement;
     const drawer = document.querySelector('#drawer > div') as HTMLElement;
-    drawer.classList.toggle('w-drawer');
-    drawerWrapper.classList.toggle('w-drawer');
     drawer.classList.toggle('w-drawer-xs');
     drawerWrapper.classList.toggle('w-drawer-xs');
+    drawer.classList.toggle('lg:w-drawer');
+    drawerWrapper.classList.toggle('lg:w-drawer');
+    drawer.classList.toggle('lg:w-drawer-xs');
+    drawerWrapper.classList.toggle('lg:w-drawer-xs');
+    drawer.classList.toggle('w-drawer');
+    drawerWrapper.classList.toggle('w-drawer');
   }
 }
