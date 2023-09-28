@@ -1,1 +1,17 @@
-<nav class="fixed bottom-0 w-full"></nav>
+<nav class="fixed bottom-0 w-full border-t sm:hidden border-t-qt-gray-2">
+  <ul class="grid justify-center grid-cols-4">
+    <li *ngFor="let element of navigationElements">
+      <app-bar-button
+        [routerLink]="element.link"
+        [title]="element.title"
+        [type]="'mobile-bar'"
+      >
+        <img
+          [src]="svgPath + element.svg"
+          [alt]="element.title"
+          class="w-[26px]"
+        />
+      </app-bar-button>
+    </li>
+  </ul>
+</nav>

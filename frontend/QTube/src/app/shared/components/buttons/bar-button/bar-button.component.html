@@ -1,12 +1,14 @@
 <button
-  class="@container/drawer-button w-full transition-colors rounded-xl hover:bg-qt-gray active:bg-qt-gray-2 @drawer-xs/drawer:flex @drawer-xs/drawer:items-center px-drawer-x py-drawer-y @drawer-xs/drawer:gap-[1.375rem]"
+  class="transition-colors hover:bg-qt-gray active:bg-qt-gray-2"
+  [class]="type ? buttonClasses[type] : ''"
   routerLinkActive="bg-qt-gray"
 >
   <picture class="flex items-center justify-center">
     <ng-content select="img"></ng-content>
   </picture>
   <h3
-    class="pt-[3px] hidden truncate text-sm @drawer-xs/drawer-button:block text-white font-[450]"
+    class="truncate text-white font-[450]"
+    [class]="type ? titleClasses[type] : ''"
   >
     {{ title }}
   </h3>

@@ -37,7 +37,11 @@
               },
             ]"
       >
-        <app-bar-button [routerLink]="element.link" [title]="element.title">
+        <app-bar-button
+          [routerLink]="element.link"
+          [title]="element.title"
+          [type]="'drawer'"
+        >
           <img
             [src]="svgPath + element.svg"
             alt="{{ element.title }}"
@@ -80,7 +84,11 @@
                 },
               ]"
       >
-        <app-bar-button [routerLink]="element.link" [title]="element.title">
+        <app-bar-button
+          [routerLink]="element.link"
+          [title]="element.title"
+          [type]="'drawer'"
+        >
           <img
             [src]="svgPath + element.svg"
             alt="{{ element.title }}"
@@ -122,7 +130,11 @@
                 },
               ]"
       >
-        <app-bar-button [routerLink]="element.link" [title]="element.title">
+        <app-bar-button
+          [routerLink]="element.link"
+          [title]="element.title"
+          [type]="'drawer'"
+        >
           <img
             [src]="imagePath + element.img"
             alt="{{ element.title }}"
@@ -135,7 +147,11 @@
     <app-drawer-separator></app-drawer-separator>
 
     <div class="mt-3 @drawer-xs/drawer:mt-0">
-      <app-bar-button [routerLink]="'/logout'" [title]="'Log out'">
+      <app-bar-button
+        [routerLink]="'/logout'"
+        [title]="'Log out'"
+        [type]="'drawer'"
+      >
         <img [src]="svgPath + 'log-out.svg'" alt="Log out" class="w-[26px]" />
       </app-bar-button>
     </div>
