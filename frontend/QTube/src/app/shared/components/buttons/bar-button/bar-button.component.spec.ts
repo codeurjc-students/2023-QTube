@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DrawerComponent } from './drawer.component';
+import { BarButtonComponent } from './bar-button.component';
 
-describe('DrawerComponent', () => {
-  let component: DrawerComponent;
-  let fixture: ComponentFixture<DrawerComponent>;
+describe('BarButtonComponent', () => {
+  let component: BarButtonComponent;
+  let fixture: ComponentFixture<BarButtonComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DrawerComponent],
+      declarations: [BarButtonComponent]
     });
-    fixture = TestBed.createComponent(DrawerComponent);
+    fixture = TestBed.createComponent(BarButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

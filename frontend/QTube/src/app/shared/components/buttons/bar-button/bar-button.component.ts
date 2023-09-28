@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { SVG_PATH } from '../../../../core/constants/imagePaths';
 
 @Component({
-  selector: 'app-drawer-button',
-  templateUrl: './drawer-button.component.html',
-  styleUrls: ['./drawer-button.component.css'],
+  selector: 'app-bar-button',
+  templateUrl: './bar-button.component.html',
+  styleUrls: ['./bar-button.component.css'],
 })
-export class DrawerButtonComponent {
+export class BarButtonComponent {
   readonly svgPath = SVG_PATH;
 
   @Input()

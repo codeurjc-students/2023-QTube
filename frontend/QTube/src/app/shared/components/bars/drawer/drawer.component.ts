@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { SVG_PATH } from '../../../core/constants/imagePaths';
-import { IMAGE_PATH } from '../../../core/constants/imagePaths';
+import { SVG_PATH, IMAGE_PATH } from '../../../../core/constants/imagePaths';
 
 @Component({
   selector: 'app-drawer',

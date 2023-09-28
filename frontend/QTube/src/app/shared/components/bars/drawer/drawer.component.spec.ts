@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DrawerBarComponent } from './drawer-bar.component';
+import { DrawerComponent } from './drawer.component';
 
-describe('DrawerBarComponent', () => {
-  let component: DrawerBarComponent;
-  let fixture: ComponentFixture<DrawerBarComponent>;
+describe('DrawerComponent', () => {
+  let component: DrawerComponent;
+  let fixture: ComponentFixture<DrawerComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DrawerBarComponent]
+      declarations: [DrawerComponent]
     });
-    fixture = TestBed.createComponent(DrawerBarComponent);
+    fixture = TestBed.createComponent(DrawerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
