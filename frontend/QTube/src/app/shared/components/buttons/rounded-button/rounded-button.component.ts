@@ -14,4 +14,7 @@ export class RoundedButtonComponent {
 
   @Input()
   title = '';
+
+  @Input()
+  classes = '';
 }

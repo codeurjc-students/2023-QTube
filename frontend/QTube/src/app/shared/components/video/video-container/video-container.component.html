@@ -1,0 +1,44 @@
+<section class="cursor-pointer">
+  <picture class="relative block w-full mb-[10px]" routerLink="">
+    <img
+      [src]="imagePath + videoImage"
+      alt="Thumbnail"
+      class="object-cover w-full h-full rounded-2xl"
+    />
+    <time
+      class="absolute flex items-center justify-center px-[6px] py-1 text-xs text-white text-wrap rounded-md bottom-1 right-2 bg-qt-black-5 font-medium"
+    >
+      {{ duration }}
+    </time>
+  </picture>
+
+  <div class="flex justify-between gap-3">
+    <app-profile-button
+      [img]="channelImage"
+      [classes]="'w-11 mt-[1.75px]'"
+      routerLink=""
+    ></app-profile-button>
+    <div class="flex flex-col gap-[2px]">
+      <h2 class="font-medium text-white text-wrap line-clamp-2" routerLink="">
+        {{ title }}
+      </h2>
+      <h4
+        class="text-sm font-medium transition-colors text-qt-gray-3 hover:text-qt-gray-7 whitespace-nowrap"
+        routerLink=""
+      >
+        {{ channel }}
+      </h4>
+      <p
+        class="text-sm font-medium text-qt-gray-3 whitespace-nowrap"
+        routerLink=""
+      >
+        {{ views }} views • {{ ago }} ago
+      </p>
+    </div>
+    <app-rounded-button
+      [img]="'watch-later.svg'"
+      [title]="'Save to watch later'"
+      [classes]="'w-10'"
+    ></app-rounded-button>
+  </div>
+</section>

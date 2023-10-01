@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SVG_PATH, IMAGE_PATH } from '../../../../core/constants/imagePaths';
+import { SVG_PATH } from '../../../../core/constants/imagePaths';
 
 @Component({
   selector: 'app-drawer',
@@ -8,5 +8,4 @@ import { SVG_PATH, IMAGE_PATH } from '../../../../core/constants/imagePaths';
 })
 export class DrawerComponent {
   readonly svgPath = SVG_PATH;
-  readonly imagePath = IMAGE_PATH;
 }

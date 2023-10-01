@@ -3,11 +3,9 @@
   [class]="type ? buttonClasses[type] : ''"
   routerLinkActive="bg-qt-gray"
 >
-  <picture class="flex items-center justify-center">
-    <ng-content select="img"></ng-content>
-  </picture>
+  <ng-content></ng-content>
   <h3
-    class="truncate text-white font-[450]"
+    class="text-white font-[450] text-wrap line-clamp-1"
     [class]="type ? titleClasses[type] : ''"
   >
     {{ title }}

@@ -10,6 +10,7 @@ module.exports = {
         "qt-black-2": "#121212",
         "qt-black-3": "#222222",
         "qt-black-4": "#212121",
+        "qt-black-5": "#00041E",
   
         "qt-gray": "#272727",
         "qt-gray-2": "#3F3F3F",
@@ -29,6 +30,7 @@ module.exports = {
       screens: {
         "2xs": "375px",
         "xs": "425px",
+        "3sm": "475px",
         "2sm": "500px",  
       },
       spacing: {
@@ -37,6 +39,9 @@ module.exports = {
       },
       containers: {
         "drawer-xs": "78px",
+        "videos-grid-xs": "550px",
+        "videos-grid-2md": "850px",
+        "videos-grid-2lg": "975px",
       },
       width: {
         "drawer-xs": "78px",

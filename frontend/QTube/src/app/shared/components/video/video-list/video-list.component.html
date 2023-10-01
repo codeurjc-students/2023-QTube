@@ -1,0 +1,17 @@
+<div class="@container/videos-grid">
+  <article
+    class="pb-24 px-5 grid gap-x-[14px] gap-y-7 @videos-grid-xs/videos-grid:grid-cols-2 @videos-grid-2md/videos-grid:grid-cols-3 @videos-grid-2lg/videos-grid:grid-cols-4"
+  >
+    <ng-container *ngFor="let index of [1, 2, 3, 4, 5]">
+      <app-video-container
+        [videoImage]="'default-thumbnail.webp'"
+        [duration]="'4:13'"
+        [channelImage]="'nifty.jpg'"
+        [title]="'Furia enters Rostermania & goes back to SAM!'"
+        [channel]="'Nifty'"
+        [views]="'5.1 K'"
+        [ago]="'1 day'"
+      ></app-video-container>
+    </ng-container>
+  </article>
+</div>

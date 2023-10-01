@@ -20,6 +20,8 @@ import { DrawerComponent } from './shared/components/bars/drawer/drawer.componen
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { FloatingLabelInputComponent } from './shared/components/form/floating-label-input/floating-label-input.component';
 import { DefaultButtonComponent } from './shared/components/buttons/default-button/default-button.component';
+import { VideoContainerComponent } from './shared/components/video/video-container/video-container.component';
+import { VideoListComponent } from './shared/components/video/video-list/video-list.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { DefaultButtonComponent } from './shared/components/buttons/default-butt
     ModalComponent,
     FloatingLabelInputComponent,
     DefaultButtonComponent,
+    VideoContainerComponent,
+    VideoListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

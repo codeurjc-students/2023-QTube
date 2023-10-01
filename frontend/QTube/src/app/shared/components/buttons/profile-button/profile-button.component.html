@@ -1,9 +1,10 @@
 <button
   class="flex items-center justify-center border-2 border-transparent rounded-full active:border-qt-blue"
+  [class]="classes ? classes : ''"
 >
   <img
     [src]="imgPath + img"
     alt="Profile picture"
-    class="object-cover w-8 rounded-full"
+    class="object-cover w-full h-full rounded-full"
   />
 </button>

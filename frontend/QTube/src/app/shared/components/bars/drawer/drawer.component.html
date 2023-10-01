@@ -128,6 +128,11 @@
                   link: '/@elrubiusOMG',
                   title: 'elrubiusOMG',
                 },
+                {
+                  img: 'nifty.jpg',
+                  link: '/@Nifty',
+                  title: 'Nifty',
+                },
               ]"
       >
         <app-bar-button
@@ -135,11 +140,10 @@
           [title]="element.title"
           [type]="'drawer'"
         >
-          <img
-            [src]="imagePath + element.img"
-            alt="{{ element.title }}"
-            class="w-[26px] rounded-full object-cover"
-          />
+          <app-profile-button
+            [img]="element.img"
+            [classes]="'w-[26px]'"
+          ></app-profile-button>
         </app-bar-button>
       </li>
     </ul>

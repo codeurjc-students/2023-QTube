@@ -1,11 +1,12 @@
 <nav
-  class="sticky top-0 z-10 flex items-center justify-between w-full pt-4 pb-6 pl-5 pr-3 sm:pl-[18px] sm:pr-[23px] bg-qt-black"
+  class="sticky top-0 z-10 flex items-center justify-between w-full pt-4 pb-6 px-5 sm:pl-[18px] sm:pr-[23px] bg-qt-black"
 >
   <div class="flex items-center gap-3 justify-self-start">
     <app-rounded-button
       [img]="'hamburguer.svg'"
       [title]="'Open drawer'"
       class="hidden sm:block"
+      [classes]="'w-11'"
       (click)="toggleDrawer()"
     ></app-rounded-button>
     <app-brand></app-brand>
@@ -18,22 +19,26 @@
       [routerLink]=""
       [img]="'search.svg'"
       [title]="'Search'"
+      [classes]="'w-11'"
       class="block lg:hidden"
     ></app-rounded-button>
     <app-rounded-button
       [routerLink]=""
       [img]="'create.svg'"
+      [classes]="'w-11'"
       [title]="'Create'"
     ></app-rounded-button>
     <app-profile-button
       [routerLink]=""
       [img]="'default-profile-picture.jpg'"
+      [classes]="'w-[36px]'"
     ></app-profile-button>
     <app-rounded-button
       [routerLink]=""
       [img]="'log-out.svg'"
       [title]="'Log out'"
       class="block sm:hidden"
+      [classes]="'w-11'"
     ></app-rounded-button>
   </div>
 

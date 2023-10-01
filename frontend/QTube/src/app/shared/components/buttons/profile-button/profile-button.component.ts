@@ -11,4 +11,7 @@ export class ProfileButtonComponent {
 
   @Input()
   img = '';
+
+  @Input()
+  classes = '';
 }
