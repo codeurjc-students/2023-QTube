@@ -1,0 +1,20 @@
+<article class="flex flex-col items-center">
+  <h1
+    class="mb-8 text-3xl font-black text-center text-white 2xs:text-4xl 3sm:text-5xl text-wrap"
+  >
+    Oops! An error has ocurred...
+  </h1>
+  <img [src]="imagePath + 'this-is-fine.gif'" alt="This is fine" />
+  <h3
+    class="mt-6 text-sm text-center text-white 2xs:text-base 3sm:text-lg sm:text-xl text-wrap opacity-70"
+  >
+    Something went wrong, but don't worry, it's not your fault.
+  </h3>
+  <app-default-button
+    [text]="'Exit'"
+    [flavour]="'primary'"
+    class="mt-6"
+    [classes]="'px-28'"
+    routerLink=""
+  ></app-default-button>
+</article>

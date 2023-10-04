@@ -1,5 +1,9 @@
 <button
-  [class]="(flavour ? flavours[flavour] : '') + (isAligned ? ' w-full' : '')"
+  [class]="
+    (flavour ? flavours[flavour] : '') +
+    (isAligned ? ' w-full' : '') +
+    (classes ? ' ' + classes : '')
+  "
 >
   {{ text }}
 </button>

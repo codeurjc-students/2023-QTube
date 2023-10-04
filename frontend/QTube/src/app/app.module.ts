@@ -17,11 +17,13 @@ import { BarButtonComponent } from './shared/components/buttons/bar-button/bar-b
 import { MobileBarComponent } from './shared/components/bars/mobile-bar/mobile-bar.component';
 import { DrawerSeparatorComponent } from './shared/components/bars/drawer/drawer-separator/drawer-separator.component';
 import { DrawerComponent } from './shared/components/bars/drawer/drawer.component';
-import { ModalComponent } from './shared/components/modal/modal.component';
 import { FloatingLabelInputComponent } from './shared/components/form/floating-label-input/floating-label-input.component';
 import { DefaultButtonComponent } from './shared/components/buttons/default-button/default-button.component';
 import { VideoContainerComponent } from './shared/components/video/video-container/video-container.component';
 import { VideoListComponent } from './shared/components/video/video-list/video-list.component';
+import { DefaultScreenComponent } from './shared/components/screens/default-screen/default-screen.component';
+import { ErrorComponent } from './shared/components/error/error.component';
+import { BarsScreenComponent } from './shared/components/screens/bars-screen/bars-screen.component';
 
 @NgModule({
   declarations: [
@@ -39,11 +41,13 @@ import { VideoListComponent } from './shared/components/video/video-list/video-l
     MobileBarComponent,
     DrawerSeparatorComponent,
     DrawerComponent,
-    ModalComponent,
     FloatingLabelInputComponent,
     DefaultButtonComponent,
     VideoContainerComponent,
     VideoListComponent,
+    DefaultScreenComponent,
+    ErrorComponent,
+    BarsScreenComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
