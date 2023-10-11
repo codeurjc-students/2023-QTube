@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-video-list',
   templateUrl: './video-list.component.html',
-  styleUrls: ['./video-list.component.css']
+  styleUrls: ['./video-list.component.css'],
 })
 export class VideoListComponent {
-
+  @Input()
+  classes = '';
 }

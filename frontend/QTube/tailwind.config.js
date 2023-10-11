@@ -38,13 +38,13 @@ module.exports = {
         "drawer-y": ".578em",
       },
       containers: {
-        "drawer-xs": "78px",
-        "videos-grid-xs": "550px",
-        "videos-grid-2md": "850px",
-        "videos-grid-2lg": "975px",
+        "nxs": "78px",
+        "1.5xs": "550px",
+        "2md": "850px",
+        "2lg": "1075px",
       },
       width: {
-        "drawer-xs": "78px",
+        "nxs": "78px",
         "drawer": "225px",
       }
     },

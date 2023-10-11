@@ -1,40 +1,51 @@
-<!-- <app-bars-screen>
-  <app-video-list></app-video-list>
-</app-bars-screen> -->
+<!-- TODO: modularize this... -->
+<app-bars-screen>
+  <div class="@container/channel-header">
+    <picture>
+      <img
+        src="assets/img/midulive-banner.jpg"
+        alt="Banner image"
+        class="object-cover w-full h-full max-h-32 @1.5xs/channel-header:max-h-44 sm:max-h-52 lg:max-h-64"
+      />
+    </picture>
 
-<!-- <app-default-screen>
-  <app-error></app-error>
-</app-default-screen> -->
+    <header class="@2lg/channel-header:px-36">
+      <div
+        class="flex flex-col @1.5xs/channel-header:flex-row items-center gap-[7px] @1.5xs/channel-header:gap-6 py-5 @1.5xs/channel-header:py-7 px-3 border-b border-b-qt-gray-4 mb-7"
+      >
+        <app-profile-button
+          img="midulive.jpg"
+          [classes]="
+            'w-[104px] @2md/channel-header:w-32 @1.5xs/channel-header:pl-2'
+          "
+        ></app-profile-button>
 
-<app-form-screen title="Watch videos now" subtitle="Go ahead." [footer]="true">
-  <div class="form-content">
-    <app-floating-label-input
-      type="email"
-      name="email"
-      label="Email"
-      [classes]="'w-full mb-4'"
-    >
-    </app-floating-label-input>
-    <app-floating-label-input
-      type="password"
-      name="password"
-      label="Password"
-      [classes]="'w-full mb-4'"
-    >
-    </app-floating-label-input>
+        <article
+          class="flex flex-col @1.5xs/channel-header:flex-row items-center flex-grow @1.5xs/channel-header:justify-between"
+        >
+          <div>
+            <h2
+              class="w-full text-center @1.5xs/channel-header:text-left max-w-[200px] text-xl font-semibold text-white text-wrap line-clamp-1 mb-1"
+            >
+              midulive
+            </h2>
+            <p
+              class="text-sm font-medium text-center @1.5xs/channel-header:text-left text-qt-gray-3 whitespace-nowrap mb-1 @1.5xs/channel-header:mb-0"
+            >
+              145 K subscribers · 379 videos
+            </p>
+          </div>
+          <app-default-button
+            [text]="'Subscribe'"
+            [flavour]="'primary'"
+            [classes]="'px-8 scale-90 scale-[.77]'"
+          ></app-default-button>
+        </article>
+      </div>
+    </header>
+
+    <app-video-list
+      [classes]="'@2lg/channel-header:px-[125px]'"
+    ></app-video-list>
   </div>
-  <div class="footer-content">
-    <h4
-      class="inline mr-[1.5px] text-xs 2xs:text-sm font-medium text-qt-gray-5"
-    >
-      Do not you have an account?
-    </h4>
-    <app-default-button
-      [text]="'Sign up'"
-      [flavour]="'link'"
-      classes="text-xs 2xs:text-sm"
-      routerLink=""
-    >
-    </app-default-button>
-  </div>
-</app-form-screen>
+</app-bars-screen>
