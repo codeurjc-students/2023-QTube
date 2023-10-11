@@ -4,7 +4,7 @@
     name="{{ name }}"
     id="{{ name }}"
     class="block pl-5 pr-4 py-4 rounded-full bg-qt-black-4 border-[1.9px] border-qt-gray-9 text-white text-wrap focus:outline-none focus:ring-0 focus:border-qt-blue peer valid:outline-none valid:ring-0 valid:border-qt-blue"
-    [class]="isAligned ? 'w-full' : ''"
+    [class]="classes ? classes : ''"
     placeholder=" "
     required=""
     autocomplete="off"

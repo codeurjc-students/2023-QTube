@@ -13,8 +13,8 @@ export class FloatingLabelInputComponent {
   name = '';
 
   @Input()
-  isAligned = false;
+  label = '';
 
   @Input()
-  label = '';
+  classes = '';
 }

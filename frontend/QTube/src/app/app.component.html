@@ -6,54 +6,24 @@
   <app-error></app-error>
 </app-default-screen> -->
 
-<!-- TODO: modularize this... -->
-<app-default-screen>
-  <header>
-    <h2
-      class="text-4xl font-bold text-center text-white mb-7 text-wrap xs:text-5xl"
-    >
-      Watch videos now
-    </h2>
-
-    <h3 class="text-[1.688rem] font-bold text-white text-wrap mb-5 text-center">
-      Go ahead.
-    </h3>
-  </header>
-
-  <form
-    class="flex flex-col justify-center gap-4 mb-3 2xs:px-10 xs:px-14 2sm:px-24"
-  >
+<app-form-screen title="Watch videos now" subtitle="Go ahead." [footer]="true">
+  <div class="form-content">
     <app-floating-label-input
-      [type]="'text'"
-      [name]="'username'"
-      [isAligned]="true"
-      [label]="'Username'"
-    ></app-floating-label-input>
-
-    <app-floating-label-input
-      [type]="'password'"
-      [name]="'password'"
-      [isAligned]="true"
-      [label]="'Password'"
-    ></app-floating-label-input>
-    <app-default-button
-      [text]="'Forgot password?'"
-      class="ml-3 -mt-2 self-baseline"
-      [flavour]="'link'"
-      classes="text-xs 2xs:text-sm"
-      routerLink=""
+      type="email"
+      name="email"
+      label="Email"
+      [classes]="'w-full mb-4'"
     >
-    </app-default-button>
-
-    <app-default-button
-      [text]="'Next'"
-      [flavour]="'primary'"
-      [isAligned]="true"
-      class="mt-1"
-    ></app-default-button>
-  </form>
-
-  <footer class="text-center">
+    </app-floating-label-input>
+    <app-floating-label-input
+      type="password"
+      name="password"
+      label="Password"
+      [classes]="'w-full mb-4'"
+    >
+    </app-floating-label-input>
+  </div>
+  <div class="footer-content">
     <h4
       class="inline mr-[1.5px] text-xs 2xs:text-sm font-medium text-qt-gray-5"
     >
@@ -66,5 +36,5 @@
       routerLink=""
     >
     </app-default-button>
-  </footer>
-</app-default-screen>
+  </div>
+</app-form-screen>

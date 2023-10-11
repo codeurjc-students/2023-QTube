@@ -24,6 +24,7 @@ import { VideoListComponent } from './shared/components/video/video-list/video-l
 import { DefaultScreenComponent } from './shared/components/screens/default-screen/default-screen.component';
 import { ErrorComponent } from './shared/components/error/error.component';
 import { BarsScreenComponent } from './shared/components/screens/bars-screen/bars-screen.component';
+import { FormScreenComponent } from './shared/components/screens/form-screen/form-screen.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { BarsScreenComponent } from './shared/components/screens/bars-screen/bar
     DefaultScreenComponent,
     ErrorComponent,
     BarsScreenComponent,
+    FormScreenComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

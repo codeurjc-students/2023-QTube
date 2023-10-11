@@ -1,0 +1,29 @@
+<app-default-screen [flavour]="flavour">
+  <header>
+    <h2
+      class="text-4xl font-bold text-center text-white mb-7 text-wrap xs:text-5xl"
+    >
+      {{ title }}
+    </h2>
+
+    <h3
+      class="text-[1.688rem] font-bold text-white text-wrap mb-5 text-center"
+      *ngIf="subtitle"
+    >
+      {{ subtitle }}
+    </h3>
+  </header>
+
+  <form class="mb-3 2xs:px-10 xs:px-14 2sm:px-24">
+    <ng-content select=".form-content"></ng-content>
+    <app-default-button
+      [text]="'Next'"
+      [flavour]="'primary'"
+      [isAligned]="true"
+    ></app-default-button>
+  </form>
+
+  <footer class="text-center" *ngIf="footer">
+    <ng-content select=".footer-content"></ng-content>
+  </footer>
+</app-default-screen>

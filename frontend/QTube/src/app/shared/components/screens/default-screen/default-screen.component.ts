@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class DefaultScreenComponent {
   @Input() flavour = '';
+
+  classes: { [key: string]: string } = {
+    arrow: 'flex items-center justify-between',
+  };
 }
