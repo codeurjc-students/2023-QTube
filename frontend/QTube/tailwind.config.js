@@ -42,6 +42,7 @@ module.exports = {
         "1.5xs": "550px",
         "2md": "850px",
         "2lg": "1075px",
+        "3lg": "1190px",
       },
       width: {
         "nxs": "78px",

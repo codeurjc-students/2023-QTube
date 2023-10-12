@@ -7,9 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class DefaultButtonComponent {
   @Input()
-  isAligned = false;
-
-  @Input()
   flavour = '';
 
   @Input()
