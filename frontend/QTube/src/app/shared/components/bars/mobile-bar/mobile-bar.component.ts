@@ -26,9 +26,9 @@ export class MobileBarComponent {
       title: 'Tendencies',
     },
     {
-      svg: 'playlists.svg',
-      link: '/playlists',
-      title: 'Playlists',
+      svg: 'watch-later.svg',
+      link: '/watch-later',
+      title: 'Watch Later',
     },
   ];
 }

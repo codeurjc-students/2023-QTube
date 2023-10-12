@@ -21,11 +21,6 @@
                 title: 'Tendencies',
               },
               {
-                svg: 'playlists.svg',
-                link: '/playlists',
-                title: 'Playlists',
-              },
-              {
                 svg: 'watch-later.svg',
                 link: '/watch-later',
                 title: 'Watch later',
@@ -56,45 +51,6 @@
     <app-small-login-cta
       class="hidden @nxs/drawer:flex flex-col gap-4 px-drawer-x py-drawer-y"
     ></app-small-login-cta>
-
-    <app-drawer-separator></app-drawer-separator>
-
-    <ul class="hidden @nxs/drawer:flex @nxs/drawer:flex-col @nxs/drawer:gap-1">
-      <li>
-        <app-drawer-header [title]="'Playlists'"></app-drawer-header>
-      </li>
-      <li
-        *ngFor="let element of [
-                {
-                  svg: 'playlist.svg',
-                  link: '/playlist/QTube',
-                  title: 'QTube',
-                },
-                {
-                  svg: 'playlist.svg',
-                  link: '/playlist/Music',
-                  title: 'Music',
-                },
-                {
-                  svg: 'playlist.svg',
-                  link: '/playlist/Alanís',
-                  title: 'Alanís',
-                },
-              ]"
-      >
-        <app-bar-button
-          [routerLink]="element.link"
-          [title]="element.title"
-          [type]="'drawer'"
-        >
-          <img
-            [src]="svgPath + element.svg"
-            alt="{{ element.title }}"
-            class="w-[26px]"
-          />
-        </app-bar-button>
-      </li>
-    </ul>
 
     <app-drawer-separator></app-drawer-separator>
 
