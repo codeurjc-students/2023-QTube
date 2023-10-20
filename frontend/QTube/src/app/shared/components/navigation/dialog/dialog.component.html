@@ -1,0 +1,13 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+
+<div (click)="dialog.showModal()">
+  <ng-content select=".open-button"></ng-content>
+</div>
+
+<dialog #dialog class="w-full py-3" [class]="classes">
+  <ng-content select=".dialog-content"></ng-content>
+  <div (click)="dialog.close()">
+    <ng-content select=".close-button"></ng-content>
+  </div>
+</dialog>

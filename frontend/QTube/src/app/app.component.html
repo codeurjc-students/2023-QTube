@@ -1,46 +1,146 @@
-<app-bars-screen>
+<!-- <app-bars-screen>
+  <app-video-list [classes]="'px-5'"></app-video-list>
+</app-bars-screen> -->
+
+<!-- <app-bars-screen>
   <div class="@container/channel-header">
     <picture>
       <img
         src="assets/img/midulive-banner.jpg"
         alt="Banner image"
-        class="object-cover w-full h-full max-h-32 @1.5xs/channel-header:max-h-44 sm:max-h-52 lg:max-h-64"
+        class="object-cover w-full h-full max-h-32 @1.5xs/channel-header:max-h-36 sm:max-h-56"
       />
     </picture>
 
-    <header
-      class="flex flex-col @1.5xs/channel-header:flex-row items-center gap-[7px] @1.5xs/channel-header:gap-6 py-5 px-4 border-b border-b-qt-gray-4 mb-5 @2lg/channel-header:px-20 @3lg/channel-header:px-36"
-    >
-      <app-profile-button
-        img="midulive.jpg"
-        [classes]="'w-28'"
-      ></app-profile-button>
-
+    <header>
       <div
-        class="flex flex-col @1.5xs/channel-header:flex-row items-center flex-grow @1.5xs/channel-header:justify-between"
+        class="flex flex-col @1.5xs/channel-header:flex-row items-center gap-[7px] @1.5xs/channel-header:gap-1 py-5 px-5 @2lg/channel-header:px-20 @3lg/channel-header:px-36"
       >
-        <div>
-          <h2
-            class="w-full text-center @1.5xs/channel-header:text-left max-w-[200px] text-xl font-semibold text-white text-wrap line-clamp-1 mb-1"
-          >
-            midulive
-          </h2>
-          <p
-            class="text-sm font-medium text-center @1.5xs/channel-header:text-left text-qt-gray-3 whitespace-nowrap mb-1 @1.5xs/channel-header:mb-0"
-          >
-            145 K subscribers · 379 videos
-          </p>
+        <app-button
+          [type]="'rounded'"
+          [img]="'midulive.jpg'"
+          [additionalImgClasses]="
+            'rounded-full w-32 ml-2 @1.5xs/channel-header:w-36 @1.5xs/channel-header:-ml-[14px]'
+          "
+          [alt]="'Midulive profile picture'"
+        ></app-button>
+        <div
+          class="flex flex-col @1.5xs/channel-header:flex-row items-center flex-grow @1.5xs/channel-header:justify-between gap-3"
+        >
+          <div>
+            <h2
+              class="w-full ml-[6px] text-center @1.5xs/channel-header:text-left @1.5xs/channel-header:ml-0 max-w-[200px] text-xl font-semibold text-white text-wrap line-clamp-1"
+            >
+              midulive
+            </h2>
+            <h3
+              class="text-sm font-medium text-center @1.5xs/channel-header:text-left text-qt-gray-3 whitespace-nowrap my-2 @1.5xs/channel-header:my-1"
+            >
+              @midulive
+            </h3>
+            <span
+              class="text-sm font-medium text-center @1.5xs/channel-header:text-left text-qt-gray-3 whitespace-nowrap @1.5xs/channel-header:mb-0"
+            >
+              145 K subscribers · 379 videos
+            </span>
+          </div>
+          <app-button
+            routerLink=""
+            [type]="'primary'"
+            [additionalButtonClasses]="'px-6 py-2'"
+            [text]="'Subscribe'"
+            [additionalTextClasses]="'text-sm'"
+          ></app-button>
         </div>
-        <app-default-button
-          [text]="'Subscribe'"
-          [flavour]="'primary'"
-          [classes]="'px-8 scale-[.77]'"
-        ></app-default-button>
       </div>
+
+      <nav
+        class="@2lg/channel-header:border-b @2lg/channel-header:border-b-qt-gray-4 px-5 @2lg/channel-header:px-20 @3lg/channel-header:px-36"
+      >
+        <ul
+          class="flex justify-center items-center @1.5xs/channel-header:justify-start"
+        >
+          <li>
+            <app-button
+              routerLink=""
+              [additionalButtonClasses]="
+                'pb-2 px-6 border-b-2 border-qt-gray-3 text-[#f1f1f1]'
+              "
+              [text]="'Videos'"
+              [additionalTextClasses]="
+                'uppercase text-md font-[475] tracking-[.5px]'
+              "
+            ></app-button>
+          </li>
+          <li>
+            <app-button
+              routerLink=""
+              [additionalButtonClasses]="
+                'pb-2 px-6 border-b-2 border-transparent text-qt-gray-3 hover:text-[#f1f1f1]'
+              "
+              [text]="'Liked'"
+              [additionalTextClasses]="
+                'uppercase text-md font-[475] tracking-[.5px]'
+              "
+            ></app-button>
+          </li>
+          <li>
+            <app-button
+              routerLink=""
+              [additionalButtonClasses]="
+                'pb-2 px-6 border-b-2 border-transparent text-qt-gray-3 hover:text-[#f1f1f1]'
+              "
+              [text]="'About'"
+              [additionalTextClasses]="
+                'uppercase text-md font-[475] tracking-[.5px]'
+              "
+            ></app-button>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <app-video-list
-      [classes]="'px-4 @2lg/channel-header:px-20 @3lg/channel-header:px-36'"
+      [classes]="
+        'mt-5 px-5 @2lg/channel-header:px-20 @3lg/channel-header:px-36'
+      "
     ></app-video-list>
   </div>
-</app-bars-screen>
+</app-bars-screen> -->
+
+<!-- <app-bars-screen>
+  <app-login-cta [flavour]="'watchLater'"></app-login-cta>
+</app-bars-screen> -->
+
+<!-- <app-default-screen>
+  <app-error-screen></app-error-screen>
+</app-default-screen> -->
+
+<!-- <app-default-screen [flavour]="'arrow'">
+  <app-form-screen
+    [title]="'Watch videos now'"
+    [subtitle]="'Join today.'"
+    [footer]="true"
+  >
+    <div class="form-content">
+      <app-floating-label-input
+        [type]="'text'"
+        [name]="'username'"
+        [label]="'Username'"
+        [classes]="'w-full mb-4'"
+      ></app-floating-label-input>
+      <app-floating-label-input
+        [type]="'password'"
+        [name]="'password'"
+        [label]="'Password'"
+        [classes]="'w-full'"
+      ></app-floating-label-input>
+    </div>
+    <div class="footer-content">
+      <span class="text-sm text-center text-white opacity-75">
+        Already have an account?
+      </span>
+      <app-button routerLink="" [type]="'link'" [text]="'Log in'"></app-button>
+    </div>
+  </app-form-screen>
+</app-default-screen> -->

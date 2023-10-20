@@ -1,4 +1,13 @@
-<p class="text-xs font-medium text-qt-gray-5">
-  Sign in to like videos, add comments, and subscribe to channels.
-</p>
-<app-login-button [routerLink]=""></app-login-button>
+<div [class]="classes">
+  <p class="text-xs font-medium text-qt-gray-5">
+    Sign in to like videos, add comments, and subscribe to channels.
+  </p>
+  <app-button
+    routerLink=""
+    [type]="'login'"
+    [svg]="'profile.svg'"
+    [alt]="'Log in'"
+    [additionalImgClasses]="'w-[26px]'"
+    [text]="'Log in'"
+  ></app-button>
+</div>

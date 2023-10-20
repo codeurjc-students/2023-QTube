@@ -1,29 +1,28 @@
-<app-default-screen [flavour]="flavour">
-  <header>
-    <h2
-      class="text-4xl font-bold text-center text-white mb-7 text-wrap xs:text-5xl"
-    >
-      {{ title }}
-    </h2>
+<header>
+  <h2
+    class="text-4xl font-bold text-center text-white mb-7 text-wrap xs:text-5xl"
+  >
+    {{ title }}
+  </h2>
 
-    <h3
-      class="text-[1.688rem] font-bold text-white text-wrap mb-5 text-center"
-      *ngIf="subtitle"
-    >
-      {{ subtitle }}
-    </h3>
-  </header>
+  <h3
+    class="text-[1.688rem] font-bold text-white text-wrap mb-5 text-center"
+    *ngIf="subtitle"
+  >
+    {{ subtitle }}
+  </h3>
+</header>
 
-  <form class="mb-3 2xs:px-10 xs:px-14 2sm:px-24">
-    <ng-content select=".form-content"></ng-content>
-    <app-default-button
-      [text]="'Next'"
-      [flavour]="'primary'"
-      [classes]="'w-full'"
-    ></app-default-button>
-  </form>
+<form class="mb-3 2xs:px-10 xs:px-14 2sm:px-24">
+  <ng-content select=".form-content"></ng-content>
+  <app-button
+    routerLink=""
+    [type]="'primary'"
+    [additionalButtonClasses]="'w-full mt-4 py-3'"
+    [text]="'Next'"
+  ></app-button>
+</form>
 
-  <footer class="text-center" *ngIf="footer">
-    <ng-content select=".footer-content"></ng-content>
-  </footer>
-</app-default-screen>
+<footer class="text-center" *ngIf="footer">
+  <ng-content select=".footer-content"></ng-content>
+</footer>

@@ -14,7 +14,4 @@ export class FormScreenComponent {
 
   @Input()
   footer = false;
-
-  @Input()
-  flavour = '';
 }

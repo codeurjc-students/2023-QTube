@@ -1,46 +1,119 @@
-<section
-  class="p-[6px] transition-colors rounded-[9px] cursor-pointer active:bg-qt-gray-6"
->
-  <picture class="relative block w-full mb-[10px]" routerLink="">
+<section class="transition-colors rounded-[9px] cursor-pointer">
+  <figure routerLink="" class="relative block w-full mb-[0.625em]">
     <img
       [src]="imagePath + videoImage"
       alt="Thumbnail"
       class="object-cover w-full h-full rounded-2xl"
     />
-    <time
-      class="absolute flex items-center justify-center px-[6px] py-1 text-xs text-white text-wrap rounded-md bottom-1 right-2 bg-qt-black-5 font-medium"
+    <figcaption
+      class="absolute flex items-center justify-center px-[0.375em] py-1 rounded-md bottom-1 right-2 bg-qt-black-5"
     >
-      {{ duration }}
-    </time>
-  </picture>
+      <time class="text-xs font-medium text-white text-wrap">{{
+        duration
+      }}</time>
+    </figcaption>
+  </figure>
 
-  <div class="flex justify-between gap-3">
-    <app-profile-button
-      [img]="channelImage"
-      [classes]="'w-11 mt-[1.75px]'"
+  <div class="flex w-full gap-2">
+    <app-button
       routerLink=""
-    ></app-profile-button>
-    <div class="flex flex-col gap-[2px]">
-      <h2 class="font-medium text-white text-wrap line-clamp-2" routerLink="">
+      [type]="'rounded'"
+      [additionalButtonClasses]="'w-[52px] -mt-[6px] flex justify-center'"
+      [img]="channelImage"
+      [alt]="channelImage + ' profile picture'"
+      [additionalImgClasses]="'rounded-full'"
+    ></app-button>
+    <div class="flex flex-col gap-[0.125em] flex-grow">
+      <h4 routerLink="" class="font-medium text-white text-wrap line-clamp-2">
         {{ title }}
-      </h2>
-      <h4
-        class="text-sm font-medium transition-colors text-qt-gray-3 hover:text-qt-gray-7 whitespace-nowrap"
+      </h4>
+      <h6
         routerLink=""
+        class="text-sm font-medium transition-colors text-qt-gray-3 hover:text-qt-gray-7 whitespace-nowrap"
       >
         {{ channel }}
-      </h4>
-      <p
-        class="text-sm font-medium text-qt-gray-3 whitespace-nowrap"
+      </h6>
+      <span
         routerLink=""
+        class="text-sm font-medium text-qt-gray-3 whitespace-nowrap"
       >
         {{ views }} views • {{ ago }} ago
-      </p>
+      </span>
     </div>
-    <app-rounded-button
-      [img]="'watch-later.svg'"
-      [title]="'Save to watch later'"
-      [classes]="'w-10'"
-    ></app-rounded-button>
+    <app-dialog [classes]="'max-w-[297px] py-3 rounded-xl bg-qt-gray'">
+      <app-button
+        [type]="'rounded'"
+        [additionalButtonClasses]="'w-10 hover:bg-qt-gray active:bg-qt-gray-2'"
+        [svg]="'dots.svg'"
+        [alt]="'Dialog controller'"
+        class="open-button"
+      ></app-button>
+      <div class="dialog-content">
+        <app-button
+          [type]="'dialog'"
+          [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
+          [svg]="'watch-later.svg'"
+          [alt]="'Watch later'"
+          [additionalImgClasses]="'w-6'"
+          [text]="'Save to Watch later'"
+          [additionalTextClasses]="'text-white'"
+        ></app-button>
+        <app-button
+          [type]="'dialog'"
+          [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
+          [svg]="'quit.svg'"
+          [alt]="'Quit from Watch later'"
+          [additionalImgClasses]="'w-[21px] ml-[1px] mr-[1.75px]'"
+          [text]="'Quit from Watch Later'"
+          [additionalTextClasses]="'text-white'"
+        ></app-button>
+        <app-button
+          [type]="'dialog'"
+          [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
+          [svg]="'like-dislike.svg'"
+          [alt]="'Like'"
+          [additionalImgClasses]="'w-6 rotate-180'"
+          [text]="'Like video'"
+          [additionalTextClasses]="'text-white'"
+        ></app-button>
+        <app-button
+          [type]="'dialog'"
+          [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
+          [svg]="'like-dislike.svg'"
+          [alt]="'Dislike'"
+          [additionalImgClasses]="'w-6'"
+          [text]="'Dislike video'"
+          [additionalTextClasses]="'text-white'"
+        ></app-button>
+        <app-button
+          [type]="'dialog'"
+          [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
+          [svg]="'edit.svg'"
+          [alt]="'Edit'"
+          [additionalImgClasses]="'w-5 mr-[4.5px]'"
+          [text]="'Edit video'"
+          [additionalTextClasses]="'text-white'"
+        ></app-button>
+        <app-button
+          [type]="'dialog'"
+          [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
+          [svg]="'trash.svg'"
+          [alt]="'Trash'"
+          [additionalImgClasses]="'w-[22px] mr-[2px]'"
+          [text]="'Delete video'"
+          [additionalTextClasses]="'text-white'"
+        ></app-button>
+      </div>
+      <app-button
+        [type]="'dialog'"
+        [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
+        [svg]="'close.svg'"
+        [alt]="'Close'"
+        [additionalImgClasses]="'w-5 mr-[4.25px]'"
+        [text]="'Close'"
+        [additionalTextClasses]="'text-white'"
+        class="close-button"
+      ></app-button>
+    </app-dialog>
   </div>
 </section>

@@ -10,11 +10,37 @@ export class LoginCtaComponent {
   readonly svgPath = SVG_PATH;
 
   @Input()
-  svg = '';
+  flavour = '';
 
-  @Input()
-  title = '';
-
-  @Input()
-  text = '';
+  flavours: {
+    [key: string]: {
+      svg: string;
+      alt: string;
+      additionalImgClasses: string;
+      title: string;
+      text: string;
+    };
+  } = {
+    subscriptions: {
+      svg: 'subscriptions.svg',
+      alt: 'Subscriptions',
+      additionalImgClasses: '',
+      title: 'Do not miss the new videos',
+      text: 'Log in to see what is new on your favorite QTube channels',
+    },
+    watchLater: {
+      svg: 'watch-later.svg',
+      alt: 'Watch later',
+      additionalImgClasses: '',
+      title: 'Watch the videos you saved',
+      text: 'Log in to watch your pending videos',
+    },
+    likedVideos: {
+      svg: 'like-dislike.svg',
+      alt: 'Like',
+      additionalImgClasses: 'ml-4 rotate-180',
+      title: 'Enjoy your favorite videos',
+      text: 'Log in to watch the videos you liked',
+    },
+  };
 }
