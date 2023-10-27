@@ -1,21 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
-
-html {
-    font-family: 'Poppins', sans-serif;
-}
-
-::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background-color: #0f0f0f; 
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 5px;
-}
