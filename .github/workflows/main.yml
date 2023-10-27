@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'temurin'
+
+      - name: Set up Node.js and NPM
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.17.0
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+  
+      - name: Run backend tests
+        run: cd backend/QTube/; mvn test -DskipTests=true
+
+      - name: Install frontend dependencies
+        run: cd frontend/QTube/; npm install
+
+      - name: Run frontend tests
+        run: cd frontend/QTube/; ng test --no-watch --no-progress --browsers=ChromeHeadless
