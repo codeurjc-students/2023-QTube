@@ -1,38 +1,34 @@
 package com.example.qtube.utils;
 
-import com.example.qtube.exception.InvalidFileMIMEException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.HashSet;
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 
 @Component
 public class FileUtils {
+    @Value("${upload.directory}")
+    private String uploadDirectory;
 
-    private final HashSet<String> validMIME = new HashSet<>();
-
-    public FileUtils() {
-        this.validMIME.add("video/mp4");
-        this.validMIME.add("video/webm");
+    public String slug(MultipartFile multipartFile) {
+        String contentType = multipartFile.getContentType();
+        String extension = contentType.replaceAll(".*/", ".");
+        String slug = UUID.randomUUID() + extension;
+        return slug;
     }
 
-    public String fileExtension(MultipartFile file) throws InvalidFileMIMEException {
-        String MIME = file.getContentType();
-
-        if (!isValidMIME(MIME)) {
-            throw new InvalidFileMIMEException();
-        }
-
-        return fileExtension(MIME);
+    public void transfer(MultipartFile multipartFile, String slug) throws IOException {
+        String path = this.path(slug);
+        File file = new File(path);
+        multipartFile.transferTo(file);
     }
 
-    public boolean isValidMIME(String MIME) {
-        return MIME != null && validMIME.contains(MIME);
+    public String path(String slug) {
+        String path = this.uploadDirectory + File.separator + slug;
+        return path;
     }
-
-    public String fileExtension(String MIME) {
-        return MIME.replaceAll(".*/", ".");
-    }
-
 }
-
