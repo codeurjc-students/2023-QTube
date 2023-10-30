@@ -2,6 +2,7 @@ package com.example.qtube.controllers;
 
 import com.example.qtube.dtos.UploadVideoDTO;
 import com.example.qtube.dtos.VideoDTO;
+import com.example.qtube.dtos.VideoDetailsDTO;
 import com.example.qtube.services.VideoService;
 
 import com.example.qtube.utils.APIUtils;
@@ -52,10 +53,26 @@ public class VideoRestController {
 
     @DeleteMapping("videos/{slug}")
     public ResponseEntity<Object> delete(@PathVariable String slug) {
-        Optional<VideoDTO> optionalVideoDTO = this.videoService.video(slug);
-        if (optionalVideoDTO.isPresent()) {
+        boolean exists = this.videoService.existsBySlug(slug);
+        if (exists) {
             this.videoService.delete(slug);
             return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("videos/{slug}")
+    public ResponseEntity<Object> update(@PathVariable String slug,
+                                         @Valid @ModelAttribute VideoDetailsDTO videoDetailsDTO,
+                                         BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Collection<String> messages = this.APIUtils.messages(bindingResult);
+            return ResponseEntity.badRequest().body(messages);
+        }
+        boolean exists = this.videoService.existsBySlug(slug);
+        if (exists) {
+            VideoDTO videoDTO = this.videoService.update(slug, videoDetailsDTO);
+            return ResponseEntity.ok().body(videoDTO);
         }
         return ResponseEntity.notFound().build();
     }

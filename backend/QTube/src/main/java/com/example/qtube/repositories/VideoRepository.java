@@ -18,4 +18,6 @@ public interface VideoRepository extends JpaRepository<Video, Long> {
 
     @Query("SELECT image.slug FROM Video WHERE slug = :slug")
     String findThumbnailSlugByVideoSlug(String slug);
+
+    boolean existsBySlug(String slug);
 }

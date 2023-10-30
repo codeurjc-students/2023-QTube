@@ -2,6 +2,7 @@ package com.example.qtube.services;
 
 import com.example.qtube.dtos.UploadVideoDTO;
 import com.example.qtube.dtos.VideoDTO;
+import com.example.qtube.dtos.VideoDetailsDTO;
 import com.example.qtube.models.Image;
 import com.example.qtube.models.Video;
 import com.example.qtube.repositories.VideoRepository;
@@ -66,10 +67,22 @@ public class VideoService {
         return Optional.empty();
     }
 
+    public boolean existsBySlug(String slug) {
+        return this.videoRepository.existsBySlug(slug);
+    }
+
     public void delete(String slug) {
         this.resourceService.delete(slug);
         String thumbnailSlug = this.videoRepository.findThumbnailSlugByVideoSlug(slug);
         this.resourceService.delete(thumbnailSlug);
         this.videoRepository.deleteBySlug(slug);
+    }
+
+    public VideoDTO update(String slug, VideoDetailsDTO videoDetailsDTO) {
+        Video video = this.videoRepository.findBySlug(slug).get();
+        this.modelMapper.map(videoDetailsDTO, video);
+        this.videoRepository.save(video);
+        VideoDTO videoDTO = this.modelMapper.map(video, VideoDTO.class);
+        return videoDTO;
     }
 }
