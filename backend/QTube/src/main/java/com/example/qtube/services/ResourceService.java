@@ -34,4 +34,12 @@ public class ResourceService {
         }
         return Optional.empty();
     }
+
+    public void delete(String slug) {
+        String path = this.fileUtils.path(slug);
+        File file = new File(path);
+        if (file.exists()) {
+            file.delete();
+        }
+    }
 }

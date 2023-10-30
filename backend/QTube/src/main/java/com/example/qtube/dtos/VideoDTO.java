@@ -13,10 +13,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class VideoDTO {
+public class VideoDTO extends VideoDetailsDTO {
     private String slug;
     private Image Image;
-    private String title;
-    private String description;
     private LocalDate date;
 }

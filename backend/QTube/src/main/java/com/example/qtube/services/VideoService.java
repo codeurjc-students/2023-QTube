@@ -65,4 +65,11 @@ public class VideoService {
         }
         return Optional.empty();
     }
+
+    public void delete(String slug) {
+        this.resourceService.delete(slug);
+        String thumbnailSlug = this.videoRepository.findThumbnailSlugByVideoSlug(slug);
+        this.resourceService.delete(thumbnailSlug);
+        this.videoRepository.deleteBySlug(slug);
+    }
 }

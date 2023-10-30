@@ -49,4 +49,14 @@ public class VideoRestController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping("videos/{slug}")
+    public ResponseEntity<Object> delete(@PathVariable String slug) {
+        Optional<VideoDTO> optionalVideoDTO = this.videoService.video(slug);
+        if (optionalVideoDTO.isPresent()) {
+            this.videoService.delete(slug);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
