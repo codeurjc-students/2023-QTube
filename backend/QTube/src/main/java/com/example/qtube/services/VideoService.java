@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -84,5 +86,13 @@ public class VideoService {
         this.videoRepository.save(video);
         VideoDTO videoDTO = this.modelMapper.map(video, VideoDTO.class);
         return videoDTO;
+    }
+
+    public Collection<VideoDTO> all() {
+        Collection<Video> videos = this.videoRepository.findAll();
+        Collection<VideoDTO> videosDTO = videos.stream()
+                .map(video -> this.modelMapper.map(video, VideoDTO.class))
+                .collect(Collectors.toList());
+        return videosDTO;
     }
 }

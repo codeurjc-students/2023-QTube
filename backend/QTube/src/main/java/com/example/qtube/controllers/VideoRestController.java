@@ -76,4 +76,10 @@ public class VideoRestController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("videos/all")
+    public ResponseEntity<Collection<VideoDTO>> all() {
+        Collection<VideoDTO> videosDTO = this.videoService.all();
+        return ResponseEntity.ok().body(videosDTO);
+    }
 }
