@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.UUID;
 
 
@@ -19,12 +18,6 @@ public class FileUtils {
         String extension = contentType.replaceAll(".*/", ".");
         String slug = UUID.randomUUID() + extension;
         return slug;
-    }
-
-    public void transfer(MultipartFile multipartFile, String slug) throws IOException {
-        String path = this.path(slug);
-        File file = new File(path);
-        multipartFile.transferTo(file);
     }
 
     public String path(String slug) {

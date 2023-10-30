@@ -1,16 +1,14 @@
 package com.example.qtube.controllers;
 
-import com.example.qtube.dtos.UploadVideoRequest;
-import com.example.qtube.models.Video;
+import com.example.qtube.dtos.UploadVideoDTO;
+import com.example.qtube.dtos.VideoDTO;
 import com.example.qtube.services.VideoService;
 
 import com.example.qtube.utils.APIUtils;
 import jakarta.validation.Valid;
-import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.net.URI;
@@ -30,25 +28,24 @@ public class VideoRestController {
     }
 
     @PostMapping("videos")
-    public ResponseEntity<Object> upload(@Valid @ModelAttribute UploadVideoRequest uploadVideoRequest,
-                                         BindingResult bindingResult) throws IOException {
+    public ResponseEntity<Object> save(@Valid @ModelAttribute UploadVideoDTO uploadVideoDTO,
+                                       BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {
             Collection<String> messages = this.APIUtils.messages(bindingResult);
             return ResponseEntity.badRequest().body(messages);
         }
-        MultipartFile multipartFile = uploadVideoRequest.getMultipartFile();
-        Video video = this.videoService.upload(multipartFile);
-        String slug = video.getSlug();
+        VideoDTO videoDTO = this.videoService.save(uploadVideoDTO);
+        String slug = videoDTO.getSlug();
         URI location = this.APIUtils.location(slug);
-        return ResponseEntity.created(location).body(video);
+        return ResponseEntity.created(location).body(videoDTO);
     }
 
     @GetMapping("videos/{slug}")
-    public ResponseEntity<Object> download(@PathVariable String slug) {
-        Optional<Resource> optionalResource = this.videoService.resource(slug);
-        if (optionalResource.isPresent()) {
-            Resource resource = optionalResource.get();
-            return ResponseEntity.ok().body(resource);
+    public ResponseEntity<Object> video(@PathVariable String slug) {
+        Optional<VideoDTO> optionalVideoDTO = this.videoService.video(slug);
+        if (optionalVideoDTO.isPresent()) {
+            VideoDTO videoDTO = optionalVideoDTO.get();
+            return ResponseEntity.ok().body(videoDTO);
         }
         return ResponseEntity.notFound().build();
     }
