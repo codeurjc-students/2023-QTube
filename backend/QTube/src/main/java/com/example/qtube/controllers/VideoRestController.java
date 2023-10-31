@@ -77,7 +77,7 @@ public class VideoRestController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("videos/all")
+    @GetMapping("videos")
     public ResponseEntity<Collection<VideoDTO>> all() {
         Collection<VideoDTO> videosDTO = this.videoService.all();
         return ResponseEntity.ok().body(videosDTO);

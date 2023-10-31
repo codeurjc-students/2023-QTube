@@ -8,19 +8,8 @@ services:
       - DATABASE_HOST=127.0.0.1
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=QTube
-    volumes: 
+    volumes:
       - db:/var/lib/postgresql/data
-
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "root@root.com"
-      PGADMIN_DEFAULT_PASSWORD: "root"
-    ports:
-      - "80:80"
-    depends_on:
-      - postgres
 
 volumes:
   db:
