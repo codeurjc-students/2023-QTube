@@ -9,7 +9,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/")
 public class ResourceRestController {
     private final ResourceService resourceService;
 

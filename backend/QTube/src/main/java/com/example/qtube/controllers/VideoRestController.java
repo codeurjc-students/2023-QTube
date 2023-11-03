@@ -5,8 +5,9 @@ import com.example.qtube.dtos.VideoDTO;
 import com.example.qtube.dtos.VideoDetailsDTO;
 import com.example.qtube.services.VideoService;
 
-import com.example.qtube.utils.APIUtils;
+import com.example.qtube.utils.RestUtils;
 import jakarta.validation.Valid;
+import org.modelmapper.internal.Pair;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -18,34 +19,32 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/")
 public class VideoRestController {
     private final VideoService videoService;
-    private final APIUtils APIUtils;
 
-    public VideoRestController(VideoService videoService, APIUtils APIUtils) {
+    public VideoRestController(VideoService videoService) {
         this.videoService = videoService;
-        this.APIUtils = APIUtils;
     }
 
     @PostMapping("videos")
     public ResponseEntity<Object> save(@Valid @ModelAttribute UploadVideoDTO uploadVideoDTO,
                                        BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {
-            Collection<String> messages = this.APIUtils.messages(bindingResult);
+            Collection<String> messages = RestUtils.messages(bindingResult);
             return ResponseEntity.badRequest().body(messages);
         }
-        VideoDTO videoDTO = this.videoService.save(uploadVideoDTO);
-        String slug = videoDTO.getSlug();
-        URI location = this.APIUtils.location(slug);
+        Pair<VideoDTO, URI> result = this.videoService.save(uploadVideoDTO);
+        VideoDTO videoDTO = result.getLeft();
+        URI location = result.getRight();
         return ResponseEntity.created(location).body(videoDTO);
     }
 
     @GetMapping("videos/{slug}")
     public ResponseEntity<Object> video(@PathVariable String slug) {
-        Optional<VideoDTO> optionalVideoDTO = this.videoService.video(slug);
-        if (optionalVideoDTO.isPresent()) {
-            VideoDTO videoDTO = optionalVideoDTO.get();
+        Optional<VideoDTO> optionalVideo = this.videoService.video(slug);
+        if (optionalVideo.isPresent()) {
+            VideoDTO videoDTO = optionalVideo.get();
             return ResponseEntity.ok().body(videoDTO);
         }
         return ResponseEntity.notFound().build();
@@ -61,12 +60,18 @@ public class VideoRestController {
         return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("videos")
+    public ResponseEntity<Collection<VideoDTO>> videos() {
+        Collection<VideoDTO> videoDTOCollection = this.videoService.videos();
+        return ResponseEntity.ok().body(videoDTOCollection);
+    }
+
     @PutMapping("videos/{slug}")
     public ResponseEntity<Object> update(@PathVariable String slug,
                                          @Valid @ModelAttribute VideoDetailsDTO videoDetailsDTO,
                                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            Collection<String> messages = this.APIUtils.messages(bindingResult);
+            Collection<String> messages = RestUtils.messages(bindingResult);
             return ResponseEntity.badRequest().body(messages);
         }
         boolean exists = this.videoService.existsBySlug(slug);
@@ -75,11 +80,5 @@ public class VideoRestController {
             return ResponseEntity.ok().body(videoDTO);
         }
         return ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("videos")
-    public ResponseEntity<Collection<VideoDTO>> all() {
-        Collection<VideoDTO> videosDTO = this.videoService.all();
-        return ResponseEntity.ok().body(videosDTO);
     }
 }
