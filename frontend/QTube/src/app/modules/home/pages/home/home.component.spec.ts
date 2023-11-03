@@ -1,0 +1,38 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
+import { HomeComponent } from './home.component';
+import { TopBarComponent } from 'src/app/shared/components/top-bar/top-bar.component';
+import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-bar.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { DrawerComponent } from 'src/app/shared/components/drawer/drawer.component';
+import { VideosComponent } from 'src/app/shared/components/videos/videos.component';
+import { MobileBarComponent } from 'src/app/shared/components/mobile-bar/mobile-bar.component';
+
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        HomeComponent,
+        TopBarComponent,
+        SearchBarComponent,
+        ButtonComponent,
+        DrawerComponent,
+        VideosComponent,
+        MobileBarComponent,
+      ],
+      imports: [HttpClientModule, RouterModule],
+    });
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -1,0 +1,19 @@
+<aside id="drawer" class="hidden w-nxs lg:w-drawer sm:block">
+  <div
+    class="fixed left-0 h-screen overflow-y-scroll w-nxs lg:w-drawer pb-60 px-3 @container/drawer"
+  >
+    <ul class="flex flex-col gap-1 pb-3">
+      <li *ngFor="let element of navigationElements">
+        <app-button
+          [type]="'drawer'"
+          [additionalButtonClasses]="'hover:bg-qt-gray'"
+          [svg]="element.svg"
+          [alt]="element.title"
+          [additionalImgClasses]="'w-[26px]'"
+          [text]="element.title"
+          [additionalTextClasses]="'text-white'"
+        ></app-button>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -16,6 +16,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class VideoDTO extends VideoDetailsDTO {
+    private String slug;
     private URI source;
     private URI thumbnailSource;
     private LocalDate date;
@@ -23,13 +24,13 @@ public class VideoDTO extends VideoDetailsDTO {
     public VideoDTO(Video video) {
         this.title = video.getTitle();
         this.description = video.getDescription();
+        this.slug = video.getSlug();
         this.setSources(video);
         this.date = video.getDate();
     }
 
     private void setSources(Video video) {
-        String slug = video.getSlug();
-        URI source = RestUtils.resource(slug);
+        URI source = RestUtils.resource(this.slug);
         this.source = source;
 
         Image image = video.getImage();

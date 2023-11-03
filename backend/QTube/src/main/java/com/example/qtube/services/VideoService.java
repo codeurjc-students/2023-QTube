@@ -7,9 +7,9 @@ import com.example.qtube.models.Image;
 import com.example.qtube.models.Video;
 import com.example.qtube.repositories.VideoRepository;
 import com.example.qtube.utils.FileUtils;
-
 import com.example.qtube.utils.RestUtils;
-import org.modelmapper.internal.Pair;
+
+import org.javatuples.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -53,7 +53,7 @@ public class VideoService {
 
         VideoDTO videoDTO = new VideoDTO(video);
         URI location = RestUtils.location(slug);
-        return Pair.of(videoDTO, location);
+        return Pair.with(videoDTO, location);
     }
 
     public Optional<VideoDTO> video(String slug) {

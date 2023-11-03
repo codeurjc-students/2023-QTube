@@ -4,10 +4,10 @@ import com.example.qtube.dtos.UploadVideoDTO;
 import com.example.qtube.dtos.VideoDTO;
 import com.example.qtube.dtos.VideoDetailsDTO;
 import com.example.qtube.services.VideoService;
-
 import com.example.qtube.utils.RestUtils;
+
 import jakarta.validation.Valid;
-import org.modelmapper.internal.Pair;
+import org.javatuples.Pair;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -35,8 +35,8 @@ public class VideoRestController {
             return ResponseEntity.badRequest().body(messages);
         }
         Pair<VideoDTO, URI> result = this.videoService.save(uploadVideoDTO);
-        VideoDTO videoDTO = result.getLeft();
-        URI location = result.getRight();
+        VideoDTO videoDTO = result.getValue0();
+        URI location = result.getValue1();
         return ResponseEntity.created(location).body(videoDTO);
     }
 
