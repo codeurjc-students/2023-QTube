@@ -22,6 +22,6 @@ export class ToastComponent implements OnInit {
   }
 
   close(toast: Toast) {
-    this._toastService.remove(toast);
+    this._toastService.delete(toast);
   }
 }

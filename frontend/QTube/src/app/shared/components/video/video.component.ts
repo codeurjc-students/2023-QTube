@@ -26,7 +26,7 @@ export class VideoComponent {
   delete() {
     this._videoService.delete(this.slug).subscribe({
       next: () => {
-        this._toastService.show('Video deleted successfully');
+        this._toastService.toast('Video successfully deleted');
       },
       error: (error) => {
         console.error(error);

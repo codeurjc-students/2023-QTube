@@ -14,13 +14,13 @@ export class ToastService {
     return this._toasts.asObservable();
   }
 
-  show(text: string, delay: number = 2500) {
+  toast(text: string) {
     const toast = new Toast(text);
     this._toasts.next([...this._toasts.value, toast]);
-    setTimeout(() => this.remove(toast), delay);
+    setTimeout(() => this.delete(toast), 4000);
   }
 
-  remove(toast: Toast) {
+  delete(toast: Toast) {
     this._toasts.next(this._toasts.value.filter((t) => t !== toast));
   }
 }

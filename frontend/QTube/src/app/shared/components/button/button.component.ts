@@ -28,7 +28,7 @@ export class ButtonComponent {
   barTextClasses = 'font-[450] text-wrap line-clamp-1';
 
   textClasses: { [key: string]: string } = {
-    link: 'text-sm font-medium underline text-qt-blue-2 line-clamp-1 text-wrap',
+    link: 'text-sm font-medium underline line-clamp-1 text-wrap',
     brand: 'font-medium text-[1.375rem] tracking-tighter text-wrap',
     primary: 'font-semibold',
     login: 'text-qt-blue-2 text-sm font-[550]',
