@@ -1,0 +1,16 @@
+<div class="fixed bottom-0 left-0 z-50 w-full px-5 sm:px-0 sm:w-fit">
+  <div
+    *ngFor="let toast of toasts$ | async"
+    class="w-full py-3 mb-[75px] bg-qt-gray-13 rounded-xl px-5 sm:m-4 flex items-center justify-between"
+  >
+    <span class="mr-2 text-sm">
+      {{ toast.text }}
+    </span>
+    <app-button
+      [type]="'link'"
+      [additionalTextClasses]="'text-qt-blue'"
+      [text]="'Close'"
+      (click)="close(toast)"
+    ></app-button>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
 import { DrawerComponent } from 'src/app/shared/components/drawer/drawer.component';
 import { VideosComponent } from 'src/app/shared/components/videos/videos.component';
 import { MobileBarComponent } from 'src/app/shared/components/mobile-bar/mobile-bar.component';
+import { ToastComponent } from 'src/app/shared/components/toast/toast.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -24,6 +25,7 @@ describe('HomeComponent', () => {
         DrawerComponent,
         VideosComponent,
         MobileBarComponent,
+        ToastComponent,
       ],
       imports: [HttpClientModule, RouterModule],
     });

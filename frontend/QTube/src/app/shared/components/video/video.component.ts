@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { VideoService } from '../../../core/services/video.service';
+import { ToastService } from '../../../core/services/toast.service';
 
 @Component({
   selector: 'app-video',
@@ -17,10 +18,16 @@ export class VideoComponent {
   @Input()
   thumbnail = '';
 
-  constructor(private _videoService: VideoService) {}
+  constructor(
+    private _videoService: VideoService,
+    private _toastService: ToastService
+  ) {}
 
   delete() {
     this._videoService.delete(this.slug).subscribe({
+      next: () => {
+        this._toastService.show('Video deleted successfully');
+      },
       error: (error) => {
         console.error(error);
       },

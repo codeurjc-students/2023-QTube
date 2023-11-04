@@ -10,6 +10,7 @@ import { SearchBarModule } from 'src/app/shared/components/search-bar/search-bar
 import { DrawerModule } from 'src/app/shared/components/drawer/drawer.module';
 import { VideosModule } from 'src/app/shared/components/videos/videos.module';
 import { MobileBarModule } from 'src/app/shared/components/mobile-bar/mobile-bar.module';
+import { ToastModule } from 'src/app/shared/components/toast/toast.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -23,6 +24,7 @@ import { MobileBarModule } from 'src/app/shared/components/mobile-bar/mobile-bar
     VideosModule,
     RouterModule,
     MobileBarModule,
+    ToastModule,
   ],
 })
 export class HomeModule {}
