@@ -37,20 +37,8 @@ module.exports = {
         "3sm": "475px",
         "2sm": "500px",  
       },
-      spacing: {
-        "drawer-x": ".875em",
-        "drawer-y": ".578em",
-      },
-      containers: {
-        "nxs": "78px",
-        "1.5xs": "525px",
-        "2md": "850px",
-        "2lg": "1075px",
-        "3lg": "1190px",
-      },
       width: {
-        "nxs": "78px",
-        "drawer": "225px",
+        "nxs": "72px",
       }
     },
   },

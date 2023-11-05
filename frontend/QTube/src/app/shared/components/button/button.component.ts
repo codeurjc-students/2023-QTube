@@ -19,20 +19,22 @@ export class ButtonComponent {
       'flex items-center justify-center gap-2 py-2 pl-4 pr-6 transition-transform bg-transparent border rounded-full hover:bg-qt-blue-3 hover:border-qt-blue-3 active:bg-qt-blue-4 border-qt-gray-6',
     rounded:
       'flex items-center justify-center p-2 transition-colors duration-200 rounded-full',
-    drawer:
-      '@container/drawer-button w-full px-drawer-x py-drawer-y @nxs/drawer:flex @nxs/drawer:items-center @nxs/drawer:gap-[1.375rem] rounded-xl',
+    'left-bar':
+      'flex flex-col items-center justify-center gap-1 rounded-xl w-16 h-20',
+    drawer: 'w-full p-3 flex items-center gap-[27px] rounded-xl',
     mobileBar: 'w-full p-2 flex flex-col items-center gap-1',
     dialog: 'flex items-center w-full gap-4 px-5 py-2 transition-colors',
   };
 
-  barTextClasses = 'font-[450] text-wrap line-clamp-1';
+  barTextClasses = 'font-[450] text-wrap';
 
   textClasses: { [key: string]: string } = {
     link: 'text-sm font-medium underline line-clamp-1 text-wrap',
     brand: 'font-medium text-[1.375rem] tracking-tighter text-wrap',
     primary: 'font-semibold',
     login: 'text-qt-blue-2 text-sm font-[550]',
-    drawer: `${this.barTextClasses} hidden @nxs/drawer-button:block text-sm`,
+    'left-bar': `${this.barTextClasses} text-[11px] @nxs/left-bar-button:text-sm`,
+    drawer: `${this.barTextClasses} text-sm`,
     mobileBar: `${this.barTextClasses} text-[10px]`,
   };
 

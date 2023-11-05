@@ -1,14 +1,16 @@
 <nav
-  class="sticky top-0 z-10 flex items-center justify-between w-full px-5 py-4 bg-qt-black"
+  class="sticky top-0 z-10 flex items-center justify-between w-full p-5 bg-qt-black"
 >
-  <div class="flex items-center gap-3 justify-self-start">
+  <div class="flex items-center gap-4 justify-self-start">
     <div class="hidden sm:block">
       <app-button
         [type]="'rounded'"
-        [additionalButtonClasses]="'w-10 hover:bg-qt-gray active:bg-qt-gray-2'"
+        [additionalButtonClasses]="
+          'drawer-toggler w-10 hover:bg-qt-gray active:bg-qt-gray-2'
+        "
         [svg]="'hamburguer.svg'"
         [alt]="'Hamburguer'"
-        (click)="toggleDrawer()"
+        [additionalImgClasses]="'drawer-toggler'"
       ></app-button>
     </div>
     <h1>
@@ -18,7 +20,7 @@
         [alt]="'QTube'"
         [additionalImgClasses]="'w-[30px]'"
         [text]="'QTube'"
-        [additionalTextClasses]="'text-white hidden 2xs:block'"
+        [additionalTextClasses]="'text-white'"
       ></app-button>
     </h1>
   </div>

@@ -1,19 +1,45 @@
-<aside id="drawer" class="hidden w-nxs lg:w-drawer sm:block">
-  <div
-    class="fixed left-0 h-screen overflow-y-scroll w-nxs lg:w-drawer pb-60 px-3 @container/drawer"
-  >
-    <ul class="flex flex-col gap-1 pb-3">
-      <li *ngFor="let element of navigationElements">
-        <app-button
-          [type]="'drawer'"
-          [additionalButtonClasses]="'hover:bg-qt-gray'"
-          [svg]="element.svg"
-          [alt]="element.title"
-          [additionalImgClasses]="'w-[26px]'"
-          [text]="element.title"
-          [additionalTextClasses]="'text-white'"
-        ></app-button>
-      </li>
-    </ul>
-  </div>
+<div
+  id="background"
+  class="absolute top-0 left-0 transition-opacity duration-500 ease-in-out opacity-0 drawer-toggler backdrop-brightness-[.25]"
+></div>
+
+<aside
+  id="drawer"
+  class="fixed top-0 left-0 z-30 h-screen overflow-y-scroll transition-all duration-500 ease-in-out transform -translate-x-full opacity-0 w-72 bg-qt-black"
+>
+  <header class="sticky top-0 left-0 flex items-center gap-4 p-5">
+    <app-button
+      [type]="'rounded'"
+      [additionalButtonClasses]="
+        'drawer-toggler w-10 hover:bg-qt-gray active:bg-qt-gray-2'
+      "
+      [svg]="'hamburguer.svg'"
+      [alt]="'Hambuguer'"
+      [additionalImgClasses]="'drawer-toggler'"
+    ></app-button>
+
+    <h2>
+      <app-button
+        [type]="'brand'"
+        [svg]="'brand.svg'"
+        [alt]="'QTube'"
+        [additionalImgClasses]="'w-[30px]'"
+        [text]="'QTube'"
+        [additionalTextClasses]="'text-white hidden 2xs:block'"
+      ></app-button>
+    </h2>
+  </header>
+
+  <nav class="pb-40 pl-4 pr-8">
+    <app-button
+      *ngFor="let option of options"
+      [type]="'drawer'"
+      [additionalButtonClasses]="'hover:bg-qt-gray active:bg-qt-gray-2'"
+      [svg]="option.svg"
+      [alt]="option.title"
+      [additionalImgClasses]="'w-6'"
+      [text]="option.title"
+      [additionalTextClasses]="'text-white'"
+    ></app-button>
+  </nav>
 </aside>

@@ -1,0 +1,14 @@
+<aside class="hidden sm:block w-nxs">
+  <div class="fixed left-0 h-screen px-2 overflow-y-scroll w-nxs pb-60">
+    <app-button
+      *ngFor="let option of options"
+      [type]="'left-bar'"
+      [additionalButtonClasses]="'hover:bg-qt-gray'"
+      [svg]="option.svg"
+      [alt]="option.title"
+      [additionalImgClasses]="'w-[26px]'"
+      [text]="option.title"
+      [additionalTextClasses]="'text-white'"
+    ></app-button>
+  </div>
+</aside>

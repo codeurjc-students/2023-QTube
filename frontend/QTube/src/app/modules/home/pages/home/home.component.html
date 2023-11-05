@@ -1,11 +1,14 @@
 <div class="min-h-screen bg-qt-black">
   <app-top-bar></app-top-bar>
-  <div class="flex sm:gap-2">
-    <app-drawer></app-drawer>
-    <main class="flex-grow px-5 pb-24 sm:pl-0">
+  <div class="flex sm:gap-5">
+    <app-left-bar></app-left-bar>
+    <main class="flex-grow px-4 pb-24 sm:pl-0">
       <router-outlet></router-outlet>
     </main>
   </div>
   <app-mobile-bar></app-mobile-bar>
-  <app-toast></app-toast>
 </div>
+
+<app-drawer></app-drawer>
+
+<app-toast></app-toast>

@@ -5,11 +5,12 @@ import { NavigationService } from 'src/app/core/services/navigation.service';
 import { Option } from '../../../core/models/option.model';
 
 @Component({
-  selector: 'app-drawer',
-  templateUrl: './drawer.component.html',
-  styleUrls: ['./drawer.component.css'],
+  selector: 'app-left-bar',
+  templateUrl: './left-bar.component.html',
+  styleUrls: ['./left-bar.component.css'],
+  providers: [NavigationService],
 })
-export class DrawerComponent implements OnInit {
+export class LeftBarComponent implements OnInit {
   options: Option[] = [];
 
   constructor(private _navigationService: NavigationService) {}
