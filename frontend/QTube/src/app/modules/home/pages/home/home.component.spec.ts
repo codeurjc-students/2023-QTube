@@ -9,7 +9,6 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
 import { LeftBarComponent } from 'src/app/shared/components/left-bar/left-bar.component';
 import { VideosComponent } from 'src/app/shared/components/videos/videos.component';
 import { MobileBarComponent } from 'src/app/shared/components/mobile-bar/mobile-bar.component';
-import { ToastComponent } from 'src/app/shared/components/toast/toast.component';
 import { DrawerComponent } from 'src/app/shared/components/drawer/drawer.component';
 
 describe('HomeComponent', () => {
@@ -26,7 +25,6 @@ describe('HomeComponent', () => {
         LeftBarComponent,
         VideosComponent,
         MobileBarComponent,
-        ToastComponent,
         DrawerComponent,
       ],
       imports: [HttpClientModule, RouterModule],

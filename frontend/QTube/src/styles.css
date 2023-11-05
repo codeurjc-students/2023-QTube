@@ -20,3 +20,7 @@ html {
     background-color: #888;
     border-radius: 5px;
 }
+
+.swal2-timer-progress-bar {
+    background: #3EA6FF !important;
+}

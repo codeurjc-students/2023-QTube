@@ -24,7 +24,7 @@ module.exports = {
         "qt-gray-10": "#535353",
         "qt-gray-11": "#666666",
         "qt-gray-12": "#D0D0D0",
-        "qt-gray-13": "#F1F1F1",
+        "qt-gray-13": "#f1f1f1",
   
         "qt-blue": "#065FD4",
         "qt-blue-2": "#3EA6FF",

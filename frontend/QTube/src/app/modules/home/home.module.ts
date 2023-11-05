@@ -10,7 +10,6 @@ import { SearchBarModule } from 'src/app/shared/components/search-bar/search-bar
 import { LeftBarModule } from 'src/app/shared/components/left-bar/left-bar.module';
 import { VideosModule } from 'src/app/shared/components/videos/videos.module';
 import { MobileBarModule } from 'src/app/shared/components/mobile-bar/mobile-bar.module';
-import { ToastModule } from 'src/app/shared/components/toast/toast.module';
 import { DrawerModule } from 'src/app/shared/components/drawer/drawer.module';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { DrawerModule } from 'src/app/shared/components/drawer/drawer.module';
     VideosModule,
     RouterModule,
     MobileBarModule,
-    ToastModule,
     DrawerModule,
   ],
 })
