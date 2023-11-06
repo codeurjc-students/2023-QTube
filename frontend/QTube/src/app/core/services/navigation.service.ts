@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Option } from '../../core/models/option.model';
+import { Option } from 'src/app/core/models/option.model';
 
 @Injectable({
   providedIn: 'root',

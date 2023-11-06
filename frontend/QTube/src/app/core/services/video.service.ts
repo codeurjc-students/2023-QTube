@@ -4,8 +4,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, catchError } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment';
-import { Video } from '../models/video.model';
+import { environment } from 'src/environments/environment';
+import { Video } from 'src/app/core/models/video.model';
 
 @Injectable({
   providedIn: 'root',

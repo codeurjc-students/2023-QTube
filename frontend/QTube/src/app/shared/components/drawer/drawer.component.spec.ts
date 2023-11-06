@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DrawerComponent } from './drawer.component';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 
 describe('DrawerComponent', () => {
   let component: DrawerComponent;

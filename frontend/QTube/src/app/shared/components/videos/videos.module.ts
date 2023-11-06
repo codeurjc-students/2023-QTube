@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { VideosComponent } from './videos.component';
-import { VideoModule } from '../video/video.module';
+import { VideoModule } from 'src/app/shared/components/video/video.module';
 
 @NgModule({
   declarations: [VideosComponent],

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IMAGE_PATH, SVG_PATH } from '../../../core/constants/constants';
+import { IMAGE_PATH, SVG_PATH } from 'src/app/core/constants/constants';
 
 @Component({
   selector: 'app-button',

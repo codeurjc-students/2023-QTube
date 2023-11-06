@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MobileBarComponent } from './mobile-bar.component';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 
 describe('MobileBarComponent', () => {
   let component: MobileBarComponent;

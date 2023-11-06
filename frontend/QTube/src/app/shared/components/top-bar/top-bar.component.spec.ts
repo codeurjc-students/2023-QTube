@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopBarComponent } from './top-bar.component';
-import { ButtonComponent } from '../button/button.component';
-import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-bar.component';
 
 describe('TopBarComponent', () => {
   let component: TopBarComponent;

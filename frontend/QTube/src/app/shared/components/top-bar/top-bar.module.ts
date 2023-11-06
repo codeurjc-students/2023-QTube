@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TopBarComponent } from './top-bar.component';
-import { ButtonModule } from '../button/button.module';
-import { SearchBarModule } from '../search-bar/search-bar.module';
+import { ButtonModule } from 'src/app/shared/components/button/button.module';
+import { SearchBarModule } from 'src/app/shared/components/search-bar/search-bar.module';
 
 @NgModule({
   declarations: [TopBarComponent],

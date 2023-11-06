@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NavigationService } from '../../../core/services/navigation.service';
-import { Option } from '../../../core/models/option.model';
+import { NavigationService } from 'src/app/core/services/navigation.service';
+import { Option } from 'src/app/core/models/option.model';
 
 @Component({
   selector: 'app-left-bar',

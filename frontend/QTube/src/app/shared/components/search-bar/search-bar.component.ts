@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { SVG_PATH } from '../../../core/constants/constants';
+import { SVG_PATH } from 'src/app/core/constants/constants';
 
 @Component({
   selector: 'app-search-bar',

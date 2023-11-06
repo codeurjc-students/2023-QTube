@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 
 import { LeftBarComponent } from './left-bar.component';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 
 describe('LeftBarComponent', () => {
   let component: LeftBarComponent;

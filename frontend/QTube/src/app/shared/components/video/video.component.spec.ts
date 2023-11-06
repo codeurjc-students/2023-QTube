@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
 import { VideoComponent } from './video.component';
-import { DialogComponent } from '../dialog/dialog.component';
-import { ButtonComponent } from '../button/button.component';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 
 describe('VideoComponent', () => {
   let component: VideoComponent;

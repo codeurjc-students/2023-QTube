@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
-import { toast } from '../../../core/toasts/toasts';
-import { VideoService } from '../../../core/services/video.service';
+import { toast } from 'src/app/core/toasts/toasts';
+import { VideoService } from 'src/app/core/services/video.service';
 
 @Component({
   selector: 'app-video',
