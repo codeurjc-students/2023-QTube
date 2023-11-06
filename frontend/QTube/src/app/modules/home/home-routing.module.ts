@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { VideosComponent } from 'src/app/shared/components/videos/videos.component';
+import { VideosComponent } from '../../shared/components/videos/videos.component';
 
 const routes: Routes = [
   {

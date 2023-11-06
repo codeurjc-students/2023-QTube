@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 
 import { LeftBarComponent } from './left-bar.component';
 import { ButtonComponent } from '../button/button.component';
@@ -10,6 +11,7 @@ describe('LeftBarComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [LeftBarComponent, ButtonComponent],
+      imports: [RouterModule, RouterModule.forRoot([])],
     });
     fixture = TestBed.createComponent(LeftBarComponent);
     component = fixture.componentInstance;

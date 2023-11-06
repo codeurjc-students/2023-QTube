@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
 import { toast } from '../../../core/toasts/toasts';
-
 import { VideoService } from '../../../core/services/video.service';
 
 @Component({

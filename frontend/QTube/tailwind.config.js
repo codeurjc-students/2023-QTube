@@ -30,20 +30,15 @@ module.exports = {
         "qt-blue-2": "#3EA6FF",
         "qt-blue-3": "#263850",
         "qt-blue-4": "#3C4C62",
+
+        "qt-red": "#FF0000",
       },
       screens: {
-        "2xs": "375px",
-        "xs": "425px",
         "3sm": "475px",
-        "2sm": "500px",  
       },
-      width: {
-        "nxs": "72px",
-      }
     },
   },
   plugins: [
-    require("@tailwindcss/container-queries"),
     require('tailwindcss-animated'),
   ],
 }
