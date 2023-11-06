@@ -11,7 +11,6 @@ import { LeftBarModule } from 'src/app/shared/components/left-bar/left-bar.modul
 import { VideosModule } from 'src/app/shared/components/videos/videos.module';
 import { MobileBarModule } from 'src/app/shared/components/mobile-bar/mobile-bar.module';
 import { DrawerModule } from 'src/app/shared/components/drawer/drawer.module';
-import { SpinnerModule } from 'src/app/shared/components/spinner/spinner.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -26,7 +25,6 @@ import { SpinnerModule } from 'src/app/shared/components/spinner/spinner.module'
     RouterModule,
     MobileBarModule,
     DrawerModule,
-    SpinnerModule,
   ],
 })
 export class HomeModule {}

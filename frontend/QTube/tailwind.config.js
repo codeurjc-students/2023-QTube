@@ -30,8 +30,6 @@ module.exports = {
         "qt-blue-2": "#3EA6FF",
         "qt-blue-3": "#263850",
         "qt-blue-4": "#3C4C62",
-
-        "qt-red": "#FF0000",
       },
       screens: {
         "3sm": "475px",

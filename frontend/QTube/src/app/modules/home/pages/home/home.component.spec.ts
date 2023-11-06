@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HomeComponent } from './home.component';
 import { TopBarComponent } from 'src/app/shared/components/top-bar/top-bar.component';
@@ -10,7 +10,6 @@ import { LeftBarComponent } from 'src/app/shared/components/left-bar/left-bar.co
 import { VideosComponent } from 'src/app/shared/components/videos/videos.component';
 import { MobileBarComponent } from 'src/app/shared/components/mobile-bar/mobile-bar.component';
 import { DrawerComponent } from 'src/app/shared/components/drawer/drawer.component';
-import { SpinnerComponent } from 'src/app/shared/components/spinner/spinner.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -27,9 +26,8 @@ describe('HomeComponent', () => {
         VideosComponent,
         MobileBarComponent,
         DrawerComponent,
-        SpinnerComponent,
       ],
-      imports: [RouterTestingModule, HttpClientTestingModule],
+      imports: [RouterModule, HttpClientModule],
     });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
