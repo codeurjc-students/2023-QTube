@@ -1,0 +1,18 @@
+<span
+  class="flex items-center w-full transition-colors"
+  [class]="flavour ? flavours[flavour] : flavours['default']"
+>
+  <span class="px-3 pointer-events-none">
+    <img
+      [src]="'assets/img/svg/' + src"
+      [alt]="alt"
+      class="pointer-events-none"
+      [class]="width"
+    />
+  </span>
+
+  <span
+    class="font-[450] text-wrap line-clamp-1 text-white pointer-events-none"
+    >{{ text }}</span
+  >
+</span>

@@ -7,40 +7,41 @@
     />
   </figure>
 
-  <div class="flex w-full gap-2">
+  <div class="flex gap-2">
     <div class="flex flex-col justify-center pl-3 gap-[0.125em] flex-grow">
       <h3 class="font-medium text-white text-wrap line-clamp-2">
         {{ title }}
       </h3>
     </div>
-    <app-dialog [classes]="'max-w-[297px] py-3 rounded-xl bg-qt-gray'">
-      <app-button
-        [type]="'rounded'"
-        [additionalButtonClasses]="'w-10 hover:bg-qt-gray active:bg-qt-gray-2'"
-        [svg]="'dots.svg'"
-        [alt]="'Dialog controller'"
-        class="open-button"
-      ></app-button>
+
+    <app-dialog [classes]="'max-w-[225px] rounded-xl bg-qt-gray'">
+      <button type="button" class="open-button">
+        <app-rounded-icon
+          [src]="'dots.svg'"
+          [alt]="'Dots icon'"
+          [width]="'w-6'"
+        ></app-rounded-icon>
+      </button>
+
       <div class="dialog-content">
-        <app-button
-          [type]="'dialog'"
-          [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
-          [svg]="'trash.svg'"
-          [alt]="'Trash'"
-          [additionalImgClasses]="'w-[22px] mr-[2px]'"
-          [text]="'Delete video'"
-          [additionalTextClasses]="'text-white'"
-          (click)="delete()"
-        ></app-button>
-        <app-button
-          [type]="'dialog'"
-          [additionalButtonClasses]="'hover:bg-qt-gray-10 active:bg-qt-gray-11'"
-          [svg]="'close.svg'"
-          [alt]="'Close'"
-          [additionalImgClasses]="'w-5 mr-[4.25px]'"
-          [text]="'Close'"
-          [additionalTextClasses]="'text-white'"
-        ></app-button>
+        <button class="w-full" type="button" (click)="delete()">
+          <app-horizontal-content
+            [flavour]="'dialog'"
+            [src]="'delete.svg'"
+            [alt]="'Delete icon'"
+            [width]="'w-6'"
+            [text]="'Delete video'"
+          ></app-horizontal-content>
+        </button>
+        <button class="w-full" type="button">
+          <app-horizontal-content
+            [flavour]="'dialog'"
+            [src]="'close.svg'"
+            [alt]="'Close icon'"
+            [width]="'w-6'"
+            [text]="'Close'"
+          ></app-horizontal-content>
+        </button>
       </div>
     </app-dialog>
   </div>

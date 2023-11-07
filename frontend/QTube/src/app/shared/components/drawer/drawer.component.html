@@ -5,41 +5,39 @@
 
 <aside
   id="drawer"
-  class="fixed top-0 left-0 z-30 h-screen overflow-y-scroll transition-all duration-500 ease-in-out transform -translate-x-full opacity-0 w-72 bg-qt-black"
+  class="fixed top-0 left-0 z-30 w-64 h-screen px-4 overflow-y-scroll transition-all duration-500 ease-in-out transform -translate-x-full opacity-0 bg-qt-black"
 >
-  <header class="sticky top-0 left-0 flex items-center gap-4 p-5">
-    <app-button
-      [type]="'rounded'"
-      [additionalButtonClasses]="
-        'drawer-toggler w-10 hover:bg-qt-gray active:bg-qt-gray-2'
-      "
-      [svg]="'hamburguer.svg'"
-      [alt]="'Hambuguer'"
-      [additionalImgClasses]="'drawer-toggler'"
-    ></app-button>
+  <header class="sticky top-0 left-0 flex items-center gap-4 py-4">
+    <button type="button" class="rounded-xl">
+      <app-rounded-icon
+        [classes]="'drawer-toggler'"
+        [src]="'hamburguer.svg'"
+        [alt]="'Hamburguer icon'"
+        [width]="'w-[26px]'"
+      ></app-rounded-icon>
+    </button>
 
-    <h2>
-      <app-button
-        [type]="'brand'"
-        [svg]="'brand.svg'"
-        [alt]="'QTube'"
-        [additionalImgClasses]="'w-[30px]'"
-        [text]="'QTube'"
-        [additionalTextClasses]="'text-white'"
-      ></app-button>
-    </h2>
+    <a [routerLink]="['/']">
+      <h2>
+        <app-brand></app-brand>
+      </h2>
+    </a>
   </header>
 
-  <nav class="pb-40 pl-4 pr-8">
-    <app-button
-      *ngFor="let option of options"
-      [type]="'drawer'"
-      [additionalButtonClasses]="'hover:bg-qt-gray active:bg-qt-gray-2'"
-      [svg]="option.svg"
-      [alt]="option.title"
-      [additionalImgClasses]="'w-6'"
-      [text]="option.title"
-      [additionalTextClasses]="'text-white'"
-    ></app-button>
+  <nav class="pb-40">
+    <ng-container *ngFor="let option of options">
+      <a
+        [routerLink]="[option.link]"
+        routerLinkActive="bg-qt-gray"
+        class="block mb-2 rounded-xl"
+      >
+        <app-horizontal-content
+          [src]="option.src"
+          [alt]="option.title + ' icon'"
+          [width]="'w-[26px]'"
+          [text]="option.title"
+        ></app-horizontal-content>
+      </a>
+    </ng-container>
   </nav>
 </aside>

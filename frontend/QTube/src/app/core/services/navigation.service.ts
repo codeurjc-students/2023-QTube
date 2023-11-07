@@ -9,8 +9,8 @@ export class NavigationService {
   private _options: Option[] = [];
 
   constructor() {
-    this._options.push(new Option('Home', 'home.svg', '/'));
-    this._options.push(new Option('Upload a video', 'upload.svg', '/'));
+    this._options.push(new Option('Home', 'home.svg', ''));
+    this._options.push(new Option('Upload a video', 'upload.svg', '/new'));
   }
 
   get options(): Option[] {

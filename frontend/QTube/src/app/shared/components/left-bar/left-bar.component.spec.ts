@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { LeftBarComponent } from './left-bar.component';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { VerticalContentComponent } from 'src/app/shared/components/vertical-content/vertical-content.component';
 
 describe('LeftBarComponent', () => {
   let component: LeftBarComponent;
@@ -10,8 +10,8 @@ describe('LeftBarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LeftBarComponent, ButtonComponent],
-      imports: [RouterModule, RouterModule.forRoot([])],
+      declarations: [LeftBarComponent, VerticalContentComponent],
+      imports: [RouterTestingModule],
     });
     fixture = TestBed.createComponent(LeftBarComponent);
     component = fixture.componentInstance;

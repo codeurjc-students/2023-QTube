@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { TopBarComponent } from './top-bar.component';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-bar.component';
+import { BrandComponent } from 'src/app/shared/components/brand/brand.component';
+import { RoundedIconComponent } from 'src/app/shared/components/rounded-icon/rounded-icon.component';
 
 describe('TopBarComponent', () => {
   let component: TopBarComponent;
@@ -10,7 +12,13 @@ describe('TopBarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TopBarComponent, ButtonComponent, SearchBarComponent],
+      declarations: [
+        TopBarComponent,
+        SearchBarComponent,
+        BrandComponent,
+        RoundedIconComponent,
+      ],
+      imports: [RouterTestingModule],
     });
     fixture = TestBed.createComponent(TopBarComponent);
     component = fixture.componentInstance;

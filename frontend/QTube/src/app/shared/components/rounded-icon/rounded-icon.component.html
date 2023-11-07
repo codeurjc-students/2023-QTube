@@ -1,0 +1,11 @@
+<span
+  class="flex items-center justify-center p-3 transition-colors duration-200 rounded-full"
+  [class]="classes + ' ' + (flavour ? flavours[flavour] : flavours['default'])"
+>
+  <img
+    [src]="'assets/img/svg/' + src"
+    [alt]="alt"
+    class="pointer-events-none"
+    [class]="width"
+  />
+</span>

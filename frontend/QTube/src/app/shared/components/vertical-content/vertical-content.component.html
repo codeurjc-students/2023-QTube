@@ -1,0 +1,16 @@
+<span
+  class="flex flex-col items-center justify-center transition-colors"
+  [class]="flavour ? flavours[flavour] : flavours['default']"
+>
+  <img
+    [src]="'assets/img/svg/' + src"
+    [alt]="alt"
+    class="pointer-events-none"
+    [class]="width"
+  />
+
+  <span
+    class="text-center text-xs font-[450] text-wrap text-white pointer-events-none"
+    >{{ text }}</span
+  >
+</span>

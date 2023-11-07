@@ -1,15 +1,17 @@
-<nav class="fixed bottom-0 w-full border-t sm:hidden border-t-qt-gray-2">
-  <ul class="grid justify-center grid-cols-2">
-    <li *ngFor="let element of navigationElements">
-      <app-button
-        [type]="'mobileBar'"
-        [additionalButtonClasses]="'bg-qt-black-2'"
-        [svg]="element.svg"
-        [alt]="element.title"
-        [additionalImgClasses]="'w-[26px]'"
-        [text]="element.title"
-        [additionalTextClasses]="'text-white'"
-      ></app-button>
-    </li>
-  </ul>
+<nav
+  class="fixed bottom-0 w-full border-t-2 bg-qt-black sm:hidden border-t-qt-gray"
+>
+  <div class="grid justify-center grid-cols-2">
+    <ng-container *ngFor="let option of options">
+      <a [routerLink]="[option.link]" routerLinkActive="bg-qt-gray">
+        <app-vertical-content
+          [flavour]="'mobile'"
+          [src]="option.src"
+          [alt]="option.title + 'icon'"
+          [width]="'w-7'"
+          [text]="option.title"
+        ></app-vertical-content>
+      </a>
+    </ng-container>
+  </div>
 </nav>
