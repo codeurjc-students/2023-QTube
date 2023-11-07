@@ -1,0 +1,15 @@
+<div class="min-h-screen bg-qt-black">
+  <app-top-bar></app-top-bar>
+
+  <div class="flex">
+    <app-left-bar></app-left-bar>
+
+    <main class="flex-grow px-4 pb-24">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <app-mobile-bar></app-mobile-bar>
+</div>
+
+<app-drawer></app-drawer>

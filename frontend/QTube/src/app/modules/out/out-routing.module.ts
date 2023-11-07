@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { VideosComponent } from 'src/app/shared/components/videos/videos.component';
+import { ErrorComponent } from 'src/app/modules/error/pages/error/error.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: VideosComponent,
+    path: 'error',
+    component: ErrorComponent,
   },
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomeRoutingModule {}
+export class OutRoutingModule {}

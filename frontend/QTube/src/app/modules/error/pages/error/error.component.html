@@ -1,0 +1,25 @@
+<article class="flex flex-col items-center gap-6">
+  <a [routerLink]="['/']" class="self-start block sm:scale-110 sm:ml-[19.75px]">
+    <h1>
+      <app-brand></app-brand>
+    </h1>
+  </a>
+  <h2
+    class="text-3xl font-black text-center text-white 2xs:text-4xl 3sm:text-5xl text-wrap"
+  >
+    Oops! An error has ocurred...
+  </h2>
+  <picture>
+    <img src="assets/img/this-is-fine.gif" alt="Error image" />
+  </picture>
+  <h3
+    class="text-sm text-center text-white 2xs:text-base 3sm:text-lg sm:text-xl text-wrap opacity-70"
+  >
+    Something went wrong, but don't worry, it's not your fault.
+  </h3>
+  <a
+    [routerLink]="['/']"
+    class="block py-3 font-semibold transition-transform bg-white rounded-full px-28 active:scale-95"
+    >Exit</a
+  >
+</article>

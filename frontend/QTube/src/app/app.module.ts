@@ -5,6 +5,8 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 import {
   NgProgressModule,
   NG_PROGRESS_CONFIG,
@@ -13,14 +15,17 @@ import {
 import { NgProgressHttpModule } from 'ngx-progressbar/http';
 import { NgProgressRouterModule } from 'ngx-progressbar/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ModulesModule } from 'src/app/modules/modules.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ModulesModule,
+    SweetAlert2Module.forRoot(),
     NgProgressModule,
     NgProgressComponent,
   ],

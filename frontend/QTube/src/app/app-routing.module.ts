@@ -1,14 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
+import { InComponent } from 'src/app/modules/in/pages/in/in.component';
+import { OutComponent } from 'src/app/modules/out/pages/out/out.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: InComponent,
     loadChildren: () =>
-      import(`./modules/home/home.module`).then((m) => m.HomeModule),
+      import('src/app/modules/in/in.module').then((m) => m.InModule),
+  },
+  {
+    path: 'out',
+    component: OutComponent,
+    loadChildren: () =>
+      import('src/app/modules/out/out.module').then((m) => m.OutModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'out/error',
   },
 ];
 

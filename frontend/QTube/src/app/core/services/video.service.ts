@@ -45,4 +45,14 @@ export class VideoService {
       })
     );
   }
+
+  video(slug: string): Observable<Video> {
+    const url = `${this._api}videos/${slug}`;
+    let video = this._httpClient.get<Video>(url).pipe(
+      catchError((error: HttpErrorResponse) => {
+        throw new Error(error.message);
+      })
+    );
+    return video;
+  }
 }

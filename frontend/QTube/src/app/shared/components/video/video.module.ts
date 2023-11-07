@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { VideoComponent } from './video.component';
 import { DialogModule } from 'src/app/shared/components/dialog/dialog.module';
@@ -15,6 +16,7 @@ import { HorizontalContentModule } from 'src/app/shared/components/horizontal-co
     HttpClientModule,
     RoundedIconModule,
     HorizontalContentModule,
+    RouterModule,
   ],
   exports: [VideoComponent],
 })
