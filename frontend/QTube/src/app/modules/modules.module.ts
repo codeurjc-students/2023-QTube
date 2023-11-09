@@ -6,10 +6,18 @@ import { InModule } from './in/in.module';
 import { HomeModule } from './home/home.module';
 import { OutModule } from './out/out.module';
 import { WatchModule } from './watch/watch.module';
+import { NewModule } from './new/new.module';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
-  exports: [ErrorModule, InModule, OutModule, HomeModule, WatchModule],
+  exports: [
+    ErrorModule,
+    InModule,
+    OutModule,
+    HomeModule,
+    WatchModule,
+    NewModule,
+  ],
 })
 export class ModulesModule {}

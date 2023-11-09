@@ -42,7 +42,7 @@ export class NotificationService {
   confirmOperationDialog(onConfirm: () => Observable<any>) {
     Swal.fire({
       title: 'Are you sure?',
-      text: 'You will not be able to revert this!',
+      text: 'This operation could not be reversible.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes',

@@ -3,7 +3,11 @@
 >
   <div class="grid justify-center grid-cols-2">
     <ng-container *ngFor="let option of options">
-      <a [routerLink]="[option.link]" routerLinkActive="bg-qt-gray">
+      <a
+        [routerLink]="[option.link]"
+        routerLinkActive="bg-qt-gray"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <app-vertical-content
           [flavour]="'mobile'"
           [src]="option.src"

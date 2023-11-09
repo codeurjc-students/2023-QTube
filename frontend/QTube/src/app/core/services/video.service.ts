@@ -4,8 +4,11 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, catchError } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 
+import { serialize } from 'object-to-formdata';
+
 import { environment } from 'src/environments/environment';
 import { Video } from 'src/app/core/models/video.model';
+import { UploadVideo } from '../models/uploadVideo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -54,5 +57,26 @@ export class VideoService {
       })
     );
     return video;
+  }
+
+  /**
+   * Uploads a video to the server via an HTTP POST request using `serialize`
+   * function to prepare files for transmission.
+   *
+   * @param uploadVideo - An object containing the information of the video to
+   * be uploaded.
+   * @returns An Observable that emits the server's response after uploading
+   * the video.
+   *
+   * @throws Error - If an error occurs during the HTTP request, an exception
+   * is thrown with the error message.
+   */
+  create(uploadVideo: UploadVideo) {
+    const url = `${this._api}videos`;
+    return this._httpClient.post<UploadVideo>(url, serialize(uploadVideo)).pipe(
+      catchError((error: HttpErrorResponse) => {
+        throw new Error(error.message);
+      })
+    );
   }
 }

@@ -1,2 +1,8 @@
-export const IMAGE_PATH = 'assets/img/';
-export const SVG_PATH = 'assets/img/svg/';
+/**
+ * @description This file contains all the constants used in the application.
+ */
+
+/**
+ * The maximum size of a file in MB.
+ */
+export const maximumFileSizeInMB = 100;

@@ -6,12 +6,17 @@ import { WatchComponent } from 'src/app/modules/watch/pages/watch/watch.componen
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
   },
   {
     path: 'watch/:slug',
     component: WatchComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
 ];
 

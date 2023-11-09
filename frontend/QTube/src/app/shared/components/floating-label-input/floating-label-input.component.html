@@ -1,0 +1,17 @@
+<div class="relative">
+  <input
+    type="{{ type }}"
+    name="{{ name }}"
+    id="{{ name }}"
+    class="block pl-5 pr-4 py-4 rounded-full bg-qt-black-4 border-[1.9px] border-qt-gray-9 text-white text-wrap focus:outline-none focus:ring-0 focus:border-qt-blue peer valid:outline-none valid:ring-0 valid:border-qt-blue"
+    [class]="classes ? classes : ''"
+    placeholder=" "
+    required=""
+    autocomplete="off"
+  />
+  <label
+    for="{{ name }}"
+    class="absolute cursor-text text-qt-gray-8 text-wrap duration-200 transform opacity-90 -translate-y-4 top-1 z-10 origin-[0] bg-qt-black-4 px-2 peer-focus:px-2 peer-focus:text-qt-blue peer-focus:opacity-100 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-90 peer-focus:-translate-y-4 left-3 peer-valid:px-2 peer-valid:opacity-100 peer-valid:text-qt-blue peer-valid:scale-90 peer-valid:-translate-y-4"
+    >{{ label }}</label
+  >
+</div>

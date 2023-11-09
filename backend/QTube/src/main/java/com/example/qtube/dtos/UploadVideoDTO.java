@@ -16,6 +16,6 @@ public class UploadVideoDTO extends VideoDetailsDTO {
     private final MultipartFile video;
 
     @ValidMultipartFile(allowedMIMETypes = {"image/jpeg", "image/png", "image/webp", "image/gif"},
-            maximumFileSizeInMB = 50)
+            maximumFileSizeInMB = 100)
     private final MultipartFile thumbnail;
 }

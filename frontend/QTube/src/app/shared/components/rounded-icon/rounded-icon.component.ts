@@ -14,7 +14,7 @@ export class RoundedIconComponent {
 
   flavours: { [key: string]: string } = {
     default: 'hover:bg-qt-gray active:bg-qt-gray-2',
-    shiny: 'hover:bg-qt-blue-2 active:bg-qt-gray-3',
+    shiny: 'hover:bg-qt-gray-2 active:bg-qt-gray-3',
   };
 
   @Input()
