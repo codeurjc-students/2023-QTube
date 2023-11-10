@@ -6,3 +6,8 @@
  * The maximum size of a file in MB.
  */
 export const maximumFileSizeInMB = 100;
+
+/**
+ * Title of the application.
+ */
+export const title = 'QTube';
