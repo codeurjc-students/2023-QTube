@@ -16,15 +16,15 @@
         *ngIf="isSubmitted && controls['video'].errors"
         class="mt-2 text-sm font-[425] text-qt-warning"
       >
-        <span *ngIf="controls['video'].hasError('required')"
-          >Video is required</span
-        >
-        <span *ngIf="controls['video'].hasError('fileType')"
-          >Invalid file type. Accepted types are: video/mp4, video/webm</span
-        >
-        <span *ngIf="controls['video'].hasError('fileSize')"
-          >File size exceeds the maximum allowed (100MB)</span
-        >
+        <div *ngIf="controls['video'].hasError('required')">
+          Video is required
+        </div>
+        <div *ngIf="controls['video'].hasError('fileType')">
+          Invalid file type. Accepted types are: video/mp4, video/webm
+        </div>
+        <div *ngIf="controls['video'].hasError('fileSize')">
+          File size exceeds the maximum allowed (100MB)
+        </div>
       </div>
     </div>
 
@@ -34,16 +34,16 @@
         *ngIf="isSubmitted && controls['thumbnail'].errors"
         class="mt-2 text-sm font-[425] text-qt-warning"
       >
-        <span *ngIf="controls['thumbnail'].hasError('required')">
+        <div *ngIf="controls['thumbnail'].hasError('required')">
           Thumbnail is required
-        </span>
-        <span *ngIf="controls['thumbnail'].hasError('fileType')"
-          >Invalid file type. Accepted types are: image/png, image/jpeg,
-          image/gif, image/webp</span
-        >
-        <span *ngIf="controls['thumbnail'].hasError('fileSize')"
-          >File size exceeds the maximum allowed (100MB)</span
-        >
+        </div>
+        <div *ngIf="controls['thumbnail'].hasError('fileType')">
+          Invalid file type. Accepted types are: image/png, image/jpeg,
+          image/gif, image/webp
+        </div>
+        <div *ngIf="controls['thumbnail'].hasError('fileSize')">
+          File size exceeds the maximum allowed (100MB)
+        </div>
       </div>
     </div>
 
@@ -69,12 +69,12 @@
         *ngIf="isSubmitted && controls['title'].errors"
         class="mt-2 text-sm font-[425] text-qt-warning"
       >
-        <span *ngIf="controls['title'].hasError('required')">
+        <div *ngIf="controls['title'].hasError('required')">
           Title is required
-        </span>
-        <span *ngIf="controls['title'].hasError('maxlength')">
+        </div>
+        <div *ngIf="controls['title'].hasError('maxlength')">
           Title must be less or equal than 25 characters
-        </span>
+        </div>
       </div>
     </div>
 
@@ -100,9 +100,9 @@
         *ngIf="isSubmitted && controls['description'].errors"
         class="mt-2 text-sm font-[425] text-qt-warning"
       >
-        <span *ngIf="controls['description'].hasError('maxlength')">
+        <div *ngIf="controls['description'].hasError('maxlength')">
           Description must be less or equal than 250 characters
-        </span>
+        </div>
       </div>
     </div>
 

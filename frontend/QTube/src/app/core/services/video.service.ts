@@ -65,15 +65,16 @@ export class VideoService {
    *
    * @param uploadVideo - An object containing the information of the video to
    * be uploaded.
+   *
    * @returns An Observable that emits the server's response after uploading
    * the video.
    *
    * @throws Error - If an error occurs during the HTTP request, an exception
    * is thrown with the error message.
    */
-  create(uploadVideo: UploadVideo) {
+  create(uploadVideo: UploadVideo): Observable<Video> {
     const url = `${this._api}videos`;
-    return this._httpClient.post<UploadVideo>(url, serialize(uploadVideo)).pipe(
+    return this._httpClient.post<Video>(url, serialize(uploadVideo)).pipe(
       catchError((error: HttpErrorResponse) => {
         throw new Error(error.message);
       })

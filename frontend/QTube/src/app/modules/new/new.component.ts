@@ -5,15 +5,16 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { FilePondOptions } from 'filepond';
 
+import { UploadVideo } from 'src/app/core/models/uploadVideo.model';
+import { maximumFileSizeInMB } from 'src/app/core/constants/constants';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { VideoService } from 'src/app/core/services/video.service';
-import { UploadVideo } from 'src/app/core/models/uploadVideo.model';
 import { AcceptedFileTypeValidator } from 'src/app/core/validators/AcceptedFileTypeValidator';
 import { FileSizeValidator } from 'src/app/core/validators/FileSizeValidator';
-import { maximumFileSizeInMB } from 'src/app/core/constants/constants';
 
 /**
  * Component to create a new video.
@@ -49,6 +50,10 @@ export class NewComponent implements OnInit {
     maxFiles: 1,
     credits: false,
     onupdatefiles: (files) => {
+      if (files.length === 0) {
+        return;
+      }
+
       this.form.patchValue({
         thumbnail: files[0].file,
       });
@@ -64,6 +69,10 @@ export class NewComponent implements OnInit {
     maxFiles: 1,
     credits: false,
     onupdatefiles: (files) => {
+      if (files.length === 0) {
+        return;
+      }
+
       this.form.patchValue({
         video: files[0].file,
       });
@@ -73,7 +82,8 @@ export class NewComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _videoService: VideoService,
-    private _notificationService: NotificationService
+    private _notificationService: NotificationService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -119,14 +129,18 @@ export class NewComponent implements OnInit {
   }
 
   /**
-   * Creates a new video using `VideoService` when the form is submitted and all
-   * its data is valid.
+   * Handles the form submission process.
+   *
+   * Marks the form as submitted, checks for form validity, and initiates video
+   * upload using the provided form values.
+   *
+   * If the form is valid, creates a new `UploadVideo` object and invokes
+   * `_uploadVideo` method to handle the actual video upload process.
    */
   onSubmit() {
     this.isSubmitted = true;
 
     if (this.form.invalid) {
-      this.form.reset();
       return;
     }
 
@@ -137,8 +151,26 @@ export class NewComponent implements OnInit {
       this.form.value.thumbnail
     );
 
-    this._notificationService.confirmOperationDialog(() =>
-      this._videoService.create(uploadVideo)
-    );
+    this._uploadVideo(uploadVideo);
+  }
+
+  /**
+   * Upload a video using the provided `UploadVideo` object.
+   *
+   * Calls the video service's create method with the provided
+   * `UploadVideo`, and if the operation is successful, navigates to home.
+   *
+   * @param {UploadVideo} uploadVideo - The video information to be uploaded.
+   */
+  private _uploadVideo(uploadVideo: UploadVideo) {
+    this._videoService.create(uploadVideo).subscribe({
+      next: () => {
+        this._notificationService.success();
+        this._router.navigate(['']);
+      },
+      error: () => {
+        this._notificationService.error();
+      },
+    });
   }
 }
