@@ -1,8 +1,6 @@
 package com.example.qtube.controllers;
 
-import com.example.qtube.dtos.UploadVideoDTO;
-import com.example.qtube.dtos.VideoDTO;
-import com.example.qtube.dtos.VideoDetailsDTO;
+import com.example.qtube.dtos.*;
 import com.example.qtube.services.VideoService;
 import com.example.qtube.utils.RestUtils;
 
@@ -42,10 +40,10 @@ public class VideoRestController {
 
     @GetMapping("videos/{slug}")
     public ResponseEntity<Object> video(@PathVariable String slug) {
-        Optional<VideoDTO> optionalVideo = this.videoService.video(slug);
+        Optional<DownloadVideoDTO> optionalVideo = this.videoService.video(slug);
         if (optionalVideo.isPresent()) {
-            VideoDTO videoDTO = optionalVideo.get();
-            return ResponseEntity.ok().body(videoDTO);
+            DownloadVideoDTO downloadVideoDTO = optionalVideo.get();
+            return ResponseEntity.ok().body(downloadVideoDTO);
         }
         return ResponseEntity.notFound().build();
     }
@@ -61,14 +59,14 @@ public class VideoRestController {
     }
 
     @GetMapping("videos")
-    public ResponseEntity<Collection<VideoDTO>> videos() {
-        Collection<VideoDTO> videoDTOCollection = this.videoService.videos();
-        return ResponseEntity.ok().body(videoDTOCollection);
+    public ResponseEntity<Collection<PreviewVideoDTO>> videos() {
+        Collection<PreviewVideoDTO> previewVideoDTOCollection = this.videoService.videos();
+        return ResponseEntity.ok().body(previewVideoDTOCollection);
     }
 
     @PutMapping("videos/{slug}")
     public ResponseEntity<Object> update(@PathVariable String slug,
-                                         @Valid @ModelAttribute VideoDetailsDTO videoDetailsDTO,
+                                         @Valid @ModelAttribute UpdateVideoDTO updateVideoDTO,
                                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             Collection<String> messages = RestUtils.messages(bindingResult);
@@ -76,7 +74,7 @@ public class VideoRestController {
         }
         boolean exists = this.videoService.existsBySlug(slug);
         if (exists) {
-            VideoDTO videoDTO = this.videoService.update(slug, videoDetailsDTO);
+            VideoDTO videoDTO = this.videoService.update(slug, updateVideoDTO);
             return ResponseEntity.ok().body(videoDTO);
         }
         return ResponseEntity.notFound().build();

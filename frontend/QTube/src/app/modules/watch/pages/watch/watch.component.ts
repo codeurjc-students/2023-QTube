@@ -4,8 +4,8 @@ import { Title } from '@angular/platform-browser';
 
 import { title } from 'src/app/core/constants/constants';
 
-import { Video } from 'src/app/core/models/video.model';
 import { VideoService } from 'src/app/core/services/video.service';
+import { DownloadVideo } from 'src/app/core/models/downloadVideo.model';
 
 /**
  * This component is responsible for displaying a video.
@@ -17,7 +17,7 @@ import { VideoService } from 'src/app/core/services/video.service';
   providers: [VideoService],
 })
 export class WatchComponent implements OnInit {
-  video: Video = {} as Video;
+  video: DownloadVideo = {} as DownloadVideo;
 
   constructor(
     private _videosService: VideoService,

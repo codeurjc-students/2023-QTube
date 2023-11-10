@@ -9,6 +9,8 @@ import { serialize } from 'object-to-formdata';
 import { environment } from 'src/environments/environment';
 import { Video } from 'src/app/core/models/video.model';
 import { UploadVideo } from '../models/uploadVideo.model';
+import { PreviewVideo } from '../models/previewVideo.model';
+import { DownloadVideo } from '../models/downloadVideo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,25 +18,29 @@ import { UploadVideo } from '../models/uploadVideo.model';
 export class VideoService {
   private readonly _api = environment.api;
 
-  private _videos: BehaviorSubject<Video[]> = new BehaviorSubject<Video[]>([]);
+  private _videos: BehaviorSubject<PreviewVideo[]> = new BehaviorSubject<
+    PreviewVideo[]
+  >([]);
 
   constructor(private _httpClient: HttpClient) {}
 
-  videos(): Observable<Video[]> {
+  videos(): Observable<PreviewVideo[]> {
     const url = `${this._api}videos`;
-    let videos: Observable<Video[]> = this._httpClient.get<Video[]>(url).pipe(
-      catchError((error: HttpErrorResponse) => {
-        throw new Error(error.message);
-      })
-    );
+    let videos: Observable<PreviewVideo[]> = this._httpClient
+      .get<PreviewVideo[]>(url)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          throw new Error(error.message);
+        })
+      );
     return videos;
   }
 
-  get videos$(): Observable<Video[]> {
+  get videos$(): Observable<PreviewVideo[]> {
     return this._videos.asObservable();
   }
 
-  delete(slug: string): Observable<Video[]> {
+  delete(slug: string): Observable<PreviewVideo[]> {
     const url = `${this._api}videos/${slug}`;
     return this._httpClient.delete<Video>(url).pipe(
       catchError((error: HttpErrorResponse) => {
@@ -49,7 +55,7 @@ export class VideoService {
     );
   }
 
-  video(slug: string): Observable<Video> {
+  video(slug: string): Observable<DownloadVideo> {
     const url = `${this._api}videos/${slug}`;
     let video = this._httpClient.get<Video>(url).pipe(
       catchError((error: HttpErrorResponse) => {

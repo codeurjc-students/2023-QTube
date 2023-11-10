@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @AllArgsConstructor
 @Getter
-public class UploadVideoDTO {
+public class UpdateVideoDTO {
     @NotBlank
     @Size(max = 25)
     protected final String title;
@@ -21,9 +21,6 @@ public class UploadVideoDTO {
     @NotNull
     @Size(max = 250)
     protected final String description;
-
-    @ValidMultipartFile(allowedMIMETypes = {"video/webm", "video/mp4"}, maximumFileSizeInMB = 100)
-    private final MultipartFile video;
 
     @ValidMultipartFile(allowedMIMETypes = {"image/jpeg", "image/png", "image/webp", "image/gif"},
             maximumFileSizeInMB = 100)

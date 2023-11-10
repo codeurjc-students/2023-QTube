@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { VideoService } from 'src/app/core/services/video.service';
-import { Video } from 'src/app/core/models/video.model';
+import { PreviewVideo } from 'src/app/core/models/previewVideo.model';
 
 @Component({
   selector: 'app-videos',
@@ -12,7 +12,7 @@ import { Video } from 'src/app/core/models/video.model';
   providers: [VideoService],
 })
 export class VideosComponent implements OnInit {
-  videos$: Observable<Video[]> = of([]);
+  videos$: Observable<PreviewVideo[]> = of([]);
 
   ngOnInit() {
     this._setVideos();

@@ -1,8 +1,6 @@
 package com.example.qtube.services;
 
-import com.example.qtube.dtos.UploadVideoDTO;
-import com.example.qtube.dtos.VideoDTO;
-import com.example.qtube.dtos.VideoDetailsDTO;
+import com.example.qtube.dtos.*;
 import com.example.qtube.models.Image;
 import com.example.qtube.models.Video;
 import com.example.qtube.repositories.VideoRepository;
@@ -56,12 +54,12 @@ public class VideoService {
         return Pair.with(videoDTO, location);
     }
 
-    public Optional<VideoDTO> video(String slug) {
+    public Optional<DownloadVideoDTO> video(String slug) {
         Optional<Video> optionalVideo = this.videoRepository.findBySlug(slug);
         if (optionalVideo.isPresent()) {
             Video video = optionalVideo.get();
-            VideoDTO videoDTO = new VideoDTO(video);
-            return Optional.of(videoDTO);
+            DownloadVideoDTO downloadVideoDTO = new DownloadVideoDTO(video);
+            return Optional.of(downloadVideoDTO);
         }
         return Optional.empty();
     }
@@ -77,17 +75,17 @@ public class VideoService {
         this.videoRepository.deleteBySlug(slug);
     }
 
-    public Collection<VideoDTO> videos() {
+    public Collection<PreviewVideoDTO> videos() {
         Collection<Video> videos = this.videoRepository.findAll();
-        Collection<VideoDTO> videosDTO = videos.stream()
-                .map(video -> new VideoDTO(video))
+        Collection<PreviewVideoDTO> previewVideoDTOs = videos.stream()
+                .map(video -> new PreviewVideoDTO(video))
                 .collect(Collectors.toList());
-        return videosDTO;
+        return previewVideoDTOs;
     }
 
-    public VideoDTO update(String slug, VideoDetailsDTO videoDetailsDTO) {
-        String title = videoDetailsDTO.getTitle();
-        String description = videoDetailsDTO.getDescription();
+    public VideoDTO update(String slug, UpdateVideoDTO updateVideoDTO) {
+        String title = updateVideoDTO.getTitle();
+        String description = updateVideoDTO.getDescription();
         Video video = this.videoRepository.findBySlug(slug).get();
         video.setTitle(title);
         video.setDescription(description);
