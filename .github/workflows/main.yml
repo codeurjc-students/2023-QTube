@@ -33,4 +33,4 @@ jobs:
         run: cd frontend/QTube/; npm install
 
       - name: Run frontend tests
-        run: cd frontend/QTube/; ng test --no-watch --no-progress --browsers=ChromeHeadless
+        run: cd frontend/QTube/; npm test
