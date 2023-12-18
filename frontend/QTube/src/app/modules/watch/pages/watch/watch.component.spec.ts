@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { WatchComponent } from './watch.component';
+import { VideoPlayerComponent } from 'src/app/shared/components/video-player/video-player.component';
 
 describe('WatchComponent', () => {
   let component: WatchComponent;
@@ -10,7 +11,7 @@ describe('WatchComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WatchComponent],
+      declarations: [WatchComponent, VideoPlayerComponent],
       imports: [RouterTestingModule, HttpClientTestingModule],
     });
     fixture = TestBed.createComponent(WatchComponent);

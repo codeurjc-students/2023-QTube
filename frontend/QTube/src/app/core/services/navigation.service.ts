@@ -11,7 +11,7 @@ export class NavigationService {
 
   constructor(private _location: Location) {
     this._options.push(new Option('Home', 'home.svg', '/home'));
-    this._options.push(new Option('Upload a video', 'upload.svg', '/out/new'));
+    this._options.push(new Option('Upload a video', 'upload.svg', '/new'));
   }
 
   get options(): Option[] {

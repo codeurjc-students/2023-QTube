@@ -20,7 +20,7 @@ export class WatchComponent implements OnInit {
   video: DownloadVideo = {} as DownloadVideo;
 
   constructor(
-    private _videosService: VideoService,
+    private _videoService: VideoService,
     private _activatedRoute: ActivatedRoute,
     private _titleService: Title
   ) {}
@@ -42,7 +42,7 @@ export class WatchComponent implements OnInit {
     this._activatedRoute.params.subscribe((params) => {
       const slug = params['slug'];
 
-      this._videosService.video(slug).subscribe((video) => {
+      this._videoService.video(slug).subscribe((video) => {
         this.video = video;
 
         this._titleService.setTitle(this.video.title + ' / ' + title);

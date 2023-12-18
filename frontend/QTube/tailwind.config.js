@@ -32,11 +32,12 @@ module.exports = {
         'qt-blue-3': '#263850',
         'qt-blue-4': '#3c4c62',
 
-        'qt-warning': '#ff4040'
+        'qt-warning': '#ff4040',
       },
       screens: {
         '4sm': '400px',
         '3sm': '475px',
+        '3lg': '875px',
       },
     },
   },

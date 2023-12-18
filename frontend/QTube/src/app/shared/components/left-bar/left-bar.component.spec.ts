@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { LeftBarComponent } from './left-bar.component';
 import { VerticalContentComponent } from 'src/app/shared/components/vertical-content/vertical-content.component';
+import { HorizontalContentComponent } from '../horizontal-content/horizontal-content.component';
 
 describe('LeftBarComponent', () => {
   let component: LeftBarComponent;
@@ -10,7 +11,11 @@ describe('LeftBarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LeftBarComponent, VerticalContentComponent],
+      declarations: [
+        LeftBarComponent,
+        VerticalContentComponent,
+        HorizontalContentComponent,
+      ],
       imports: [RouterTestingModule],
     });
     fixture = TestBed.createComponent(LeftBarComponent);

@@ -1,18 +1,30 @@
-<aside class="hidden sm:block w-[72px]">
-  <div class="fixed left-0 h-screen px-2 overflow-y-scroll w-[72px] pb-60">
+<aside class="hidden lg:w-64 sm:block sm:w-[72px]">
+  <div
+    class="fixed left-0 lg:w-64 sm:w-[72px] h-screen px-2 lg:px-4 overflow-y-scroll pb-60"
+  >
     <ng-container *ngFor="let option of options">
       <a
         [routerLink]="[option.link]"
         routerLinkActive="bg-qt-gray"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="block w-16 mb-2 rounded-xl"
+        class="block mb-2 sm:w-16 lg:w-full rounded-xl"
       >
-        <app-vertical-content
-          [src]="option.src"
-          [alt]="option.title + ' icon'"
-          [width]="'w-[26px]'"
-          [text]="option.title"
-        ></app-vertical-content>
+        <div class="lg:hidden">
+          <app-vertical-content
+            [src]="option.src"
+            [alt]="option.title + ' icon'"
+            [width]="'w-[26px]'"
+            [text]="option.title"
+          ></app-vertical-content>
+        </div>
+        <div class="hidden lg:block">
+          <app-horizontal-content
+            [src]="option.src"
+            [alt]="option.title + ' icon'"
+            [width]="'w-[26px]'"
+            [text]="option.title"
+          ></app-horizontal-content>
+        </div>
       </a>
     </ng-container>
   </div>

@@ -1,5 +1,6 @@
 package com.example.qtube.dtos;
 
+import com.example.qtube.models.Image;
 import com.example.qtube.models.Video;
 import com.example.qtube.utils.RestUtils;
 
@@ -12,18 +13,24 @@ import java.net.URI;
 @Getter
 @Setter
 public class DownloadVideoDTO {
-    private URI source;
     private String title;
     private String description;
+    private URI source;
+    private URI thumbnailSource;
 
     public DownloadVideoDTO(Video video) {
-        this.setSource(video);
+        this.setSources(video);
         this.title = video.getTitle();
         this.description = video.getDescription();
     }
 
-    private void setSource(Video video) {
+    private void setSources(Video video) {
         String slug = video.getSlug();
         this.source = RestUtils.resource(slug);
+
+        Image image = video.getImage();
+        String thumbnailSlug = image.getSlug();
+        URI thumbnailSource = RestUtils.resource(thumbnailSlug);
+        this.thumbnailSource = thumbnailSource;
     }
 }

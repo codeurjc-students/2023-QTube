@@ -9,15 +9,28 @@ import { Router } from '@angular/router';
 
 import { FilePondOptions } from 'filepond';
 
+import {
+  maximumFileSizeInBytes,
+  maximumFileSizeInMB,
+  acceptedImages,
+  acceptedVideos,
+  maximumDescriptionLength,
+  maximumTitleLength,
+} from 'src/app/core/constants/constants';
+
 import { UploadVideo } from 'src/app/core/models/uploadVideo.model';
-import { maximumFileSizeInMB } from 'src/app/core/constants/constants';
+
+import {
+  AcceptedFileTypeValidator,
+  FileSizeValidator,
+} from 'src/app/core/validators/validators';
+
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { VideoService } from 'src/app/core/services/video.service';
-import { AcceptedFileTypeValidator } from 'src/app/core/validators/AcceptedFileTypeValidator';
-import { FileSizeValidator } from 'src/app/core/validators/FileSizeValidator';
 
 /**
- * Component to create a new video.
+ * Create a new video.
+ * @class
  */
 @Component({
   selector: 'app-new',
@@ -26,7 +39,35 @@ import { FileSizeValidator } from 'src/app/core/validators/FileSizeValidator';
 })
 export class NewComponent implements OnInit {
   /**
+   * Maximum file size in bytes.
+   * @constant
+   */
+  readonly maximumFileSizeInBytes = maximumFileSizeInBytes;
+
+  /**
+   * Maximum file size in MB. Used to display the maximum file size in
+   * the UI.
+   * @constant
+   */
+  readonly maximumFileSizeInMB = maximumFileSizeInMB;
+
+  /**
+   * Maximum length of the title of a video. Used to display the maximum title
+   * length in the UI.
+   * @constant
+   */
+  readonly maximumTitleLength = maximumTitleLength;
+
+  /**
+   * Maximum length of the description of a video. Used to display the maximum
+   * description length in the UI.
+   * @constant
+   */
+  readonly maximumDescriptionLength = maximumDescriptionLength;
+
+  /**
    * Form to create a new video.
+   * @property {FormGroup}
    */
   form: FormGroup = new FormGroup({
     title: new FormControl(),
@@ -37,16 +78,18 @@ export class NewComponent implements OnInit {
 
   /**
    * Flag to indicate if the form has been submitted. It is used to show
-   * invalid field errors.
+   * invalid field errors in the UI.
+   * @property {boolean}
    */
-  public isSubmitted = false;
+  isSubmitted = false;
 
   /**
    * FilePond thumbnail options.
+   * @property {FilePondOptions}
    */
   pondThumbnailOptions: FilePondOptions = {
     labelIdle:
-      '<span class="text-qt-gray-8">Drop your <span class="text-qt-blue-2">thumbnail</span> here or <span class="underline underline-offset-4 cursor-pointer">Browse</span></span>',
+      '<span class="text-qt-gray-8 !text-sm 4sm:!text-base">Drop your <span class="text-qt-blue-2">thumbnail</span> here or <span class="underline underline-offset-4 cursor-pointer">Browse</span></span>',
     maxFiles: 1,
     credits: false,
     onupdatefiles: (files) => {
@@ -62,10 +105,11 @@ export class NewComponent implements OnInit {
 
   /**
    * FilePond video options.
+   * @property {FilePondOptions}
    */
   pondVideoOptions: FilePondOptions = {
     labelIdle:
-      '<span class="text-qt-gray-8">Drop your <span class="text-qt-blue-2">video</span> here or <span class="underline underline-offset-4 cursor-pointer">Browse</span></span>',
+      '<span class="text-qt-gray-8 !text-sm 4sm:!text-base">Drop your <span class="text-qt-blue-2">video</span> here or <span class="underline underline-offset-4 cursor-pointer">Browse</span></span>',
     maxFiles: 1,
     credits: false,
     onupdatefiles: (files) => {
@@ -87,45 +131,46 @@ export class NewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._initForm();
+    this._form();
+  }
+
+  /**
+   * Getter for form controls.
+   * @getter
+   */
+  get controls() {
+    return this.form.controls;
   }
 
   /**
    * Initializes the form.
+   * @private
+   * @method
    */
-  private _initForm() {
+  private _form() {
     this.form = this._formBuilder.group({
-      title: [, [Validators.required, Validators.maxLength(25)]],
-      description: [, Validators.maxLength(250)],
+      title: [
+        ,
+        [Validators.required, Validators.maxLength(maximumTitleLength)],
+      ],
+      description: [, Validators.maxLength(maximumDescriptionLength)],
       video: [
         ,
         [
           Validators.required,
-          AcceptedFileTypeValidator(['video/mp4', 'video/webm']),
-          FileSizeValidator(maximumFileSizeInMB * 1024 * 1024),
+          AcceptedFileTypeValidator(acceptedVideos),
+          FileSizeValidator(maximumFileSizeInBytes),
         ],
       ],
       thumbnail: [
         ,
         [
           Validators.required,
-          AcceptedFileTypeValidator([
-            'image/jpeg',
-            'image/png',
-            'image/webp',
-            'image/gif',
-          ]),
-          FileSizeValidator(maximumFileSizeInMB * 1024 * 1024),
+          AcceptedFileTypeValidator(acceptedImages),
+          FileSizeValidator(maximumFileSizeInBytes),
         ],
       ],
     });
-  }
-
-  /**
-   * Getter for form controls.
-   */
-  get controls() {
-    return this.form.controls;
   }
 
   /**
@@ -136,6 +181,8 @@ export class NewComponent implements OnInit {
    *
    * If the form is valid, creates a new `UploadVideo` object and invokes
    * `_uploadVideo` method to handle the actual video upload process.
+   *
+   * @method
    */
   onSubmit() {
     this.isSubmitted = true;
@@ -144,14 +191,14 @@ export class NewComponent implements OnInit {
       return;
     }
 
-    const uploadVideo = new UploadVideo(
+    const uploadVideo: UploadVideo = new UploadVideo(
       this.form.value.title,
       this.form.value.description,
       this.form.value.video,
       this.form.value.thumbnail
     );
 
-    this._uploadVideo(uploadVideo);
+    this._upload(uploadVideo);
   }
 
   /**
@@ -160,10 +207,12 @@ export class NewComponent implements OnInit {
    * Calls the video service's create method with the provided
    * `UploadVideo`, and if the operation is successful, navigates to home.
    *
-   * @param {UploadVideo} uploadVideo - The video information to be uploaded.
+   * @param {UploadVideo} video - The video information to be uploaded.
+   * @method
+   * @private
    */
-  private _uploadVideo(uploadVideo: UploadVideo) {
-    this._videoService.create(uploadVideo).subscribe({
+  private _upload(video: UploadVideo) {
+    this._videoService.create(video).subscribe({
       next: () => {
         this._notificationService.success();
         this._router.navigate(['']);

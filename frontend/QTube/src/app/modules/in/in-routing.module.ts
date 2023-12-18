@@ -5,8 +5,15 @@ import { title } from 'src/app/core/constants/constants';
 
 import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
 import { WatchComponent } from 'src/app/modules/watch/pages/watch/watch.component';
+import { ErrorComponent } from 'src/app/modules/error/pages/error/error.component';
+import { NewComponent } from '../new/pages/new/new.component';
+import { UpdateComponent } from '../update/pages/update/update.component';
 
 const routes: Routes = [
+  {
+    path: 'error',
+    component: ErrorComponent,
+  },
   {
     path: 'home',
     component: HomeComponent,
@@ -15,6 +22,14 @@ const routes: Routes = [
   {
     path: 'watch/:slug',
     component: WatchComponent,
+  },
+  {
+    path: 'new',
+    component: NewComponent,
+  },
+  {
+    path: 'update/:slug',
+    component: UpdateComponent,
   },
   {
     path: '',

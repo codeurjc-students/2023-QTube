@@ -1,0 +1,110 @@
+<div class="flex justify-center 3lg:gap-7 3lg:justify-normal">
+  <div class="flex-grow max-w-2xl">
+    <div class="mb-6 3lg:mb-4">
+      <h2 class="mb-2 text-3xl font-semibold text-white md:text-4xl text-wrap">
+        Edit your video
+      </h2>
+
+      <p class="text-lg text-white text-wrap opacity-70">
+        Transforming moments, one edit at a time.
+      </p>
+    </div>
+
+    <form
+      (ngSubmit)="onSubmit()"
+      [formGroup]="form"
+      class="flex flex-col gap-4"
+    >
+      <file-pond [options]="filePondOptions"></file-pond>
+
+      <div>
+        <label
+          class="block rounded-xl border-qt-gray-9 border-[2.8px] px-3 cursor-text group focus-within:border-qt-blue bg-qt-black-4"
+        >
+          <span
+            class="block pt-[10px] text-lg font-medium transition-colors text-qt-gray-8 group-focus-within:text-qt-blue-2 bg-qt-black-4"
+          >
+            Title
+          </span>
+          <textarea
+            class="w-full pb-1 mt-[6px] text-lg font-medium text-white bg-transparent border-transparent resize-none focus:outline-none transition-colors"
+            rows="2"
+            formControlName="title"
+            >{{ controls["title"].value }}</textarea
+          >
+        </label>
+      </div>
+
+      <div>
+        <label
+          class="block rounded-xl border-qt-gray-9 border-[2.8px] px-3 cursor-text group focus-within:border-qt-blue bg-qt-black-4"
+        >
+          <span
+            class="block pt-[10px] text-lg font-medium transition-colors text-qt-gray-8 group-focus-within:text-qt-blue-2 bg-qt-black-4"
+          >
+            Description
+          </span>
+          <textarea
+            class="w-full pb-1 mt-[6px] text-lg font-medium text-white bg-transparent border-transparent resize-none focus:outline-none transition-colors"
+            formControlName="description"
+            rows="4"
+            >{{ controls["description"].value }}</textarea
+          >
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full py-3 font-[550] transition-transform bg-qt-blue-2 px-5 text-qt-black rounded-xl active:scale-95 text-base"
+      >
+        Save changes
+      </button>
+    </form>
+  </div>
+
+  <div
+    class="flex-grow hidden max-w-sm border-2 rounded-xl border-qt-gray bg-qt-black-4 p-9 bg-gradient-to-b from-qt-black-4 to-qt-black 3lg:block"
+  >
+    <div class="mb-4 text-3xl font-medium text-white">Preview</div>
+
+    <app-video-player
+      [src]="video.source"
+      [classes]="'mb-4'"
+    ></app-video-player>
+
+    <div class="mb-2 text-lg font-medium text-qt-gray-8">Thumbnail</div>
+
+    <img
+      [src]="thumbnail"
+      *ngIf="thumbnail"
+      alt="Video thumbnail image"
+      class="object-cover w-full mb-4 border-2 rounded-xl border-qt-gray"
+    />
+
+    <div class="mb-2 text-lg font-medium text-qt-gray-8">Title</div>
+
+    <div
+      class="mb-4 text-wrap line-clamp-2"
+      [ngClass]="{
+        'text-qt-warning': !controls['title'].value,
+        'text-white font-medium text-lg': controls['title'].value
+      }"
+    >
+      {{
+        controls["title"].value
+          ? controls["title"].value
+          : "The video must have a title."
+      }}
+    </div>
+
+    <div class="mb-2 text-lg font-medium text-qt-gray-8">Description</div>
+
+    <div class="font-medium text-white text-wrap line-clamp-3">
+      {{
+        controls["description"].value
+          ? controls["description"].value
+          : "This video has no description."
+      }}
+    </div>
+  </div>
+</div>

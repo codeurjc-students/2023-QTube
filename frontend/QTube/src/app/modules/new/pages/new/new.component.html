@@ -1,10 +1,10 @@
-<article>
-  <div class="mb-6">
-    <h2 class="mb-2 text-3xl font-semibold text-white sm:text-4xl text-wrap">
+<div class="max-w-2xl mx-auto lg:mx-0">
+  <div class="mb-5">
+    <h2 class="mb-2 text-3xl font-semibold text-white md:text-4xl text-wrap">
       Upload a video
     </h2>
 
-    <p class="text-lg text-white sm:text-xl text-wrap opacity-70">
+    <p class="text-lg text-white md:text-xl text-wrap opacity-70">
       Show your work of art to the world
     </p>
   </div>
@@ -17,13 +17,13 @@
         class="mt-2 text-sm font-[425] text-qt-warning"
       >
         <div *ngIf="controls['video'].hasError('required')">
-          Video is required
+          Video is required.
         </div>
         <div *ngIf="controls['video'].hasError('fileType')">
-          Invalid file type. Accepted types are: video/mp4, video/webm
+          Invalid file type. Accepted types are "video/mp4" and "video/webm".
         </div>
         <div *ngIf="controls['video'].hasError('fileSize')">
-          File size exceeds the maximum allowed (100MB)
+          File size exceeds the maximum allowed ({{ maximumFileSizeInMB }}MB).
         </div>
       </div>
     </div>
@@ -35,27 +35,27 @@
         class="mt-2 text-sm font-[425] text-qt-warning"
       >
         <div *ngIf="controls['thumbnail'].hasError('required')">
-          Thumbnail is required
+          Thumbnail is required.
         </div>
         <div *ngIf="controls['thumbnail'].hasError('fileType')">
-          Invalid file type. Accepted types are: image/png, image/jpeg,
-          image/gif, image/webp
+          Invalid file type. Accepted types are: "image/png", "image/jpeg",
+          "image/gif" and "image/webp".
         </div>
         <div *ngIf="controls['thumbnail'].hasError('fileSize')">
-          File size exceeds the maximum allowed (100MB)
+          File size exceeds the maximum allowed ({{ maximumFileSizeInMB }}MB).
         </div>
       </div>
     </div>
 
     <div>
       <label
-        class="block rounded-xl border-qt-gray-9 border-[2.8px] px-3 cursor-text group focus-within:border-qt-blue"
+        class="block rounded-xl border-qt-gray-9 border-[2.8px] px-3 cursor-text group focus-within:border-qt-blue bg-qt-black-4"
         [ngClass]="{
           'border-qt-warning': isSubmitted && controls['title'].errors
         }"
       >
         <span
-          class="block pt-[10px] text-lg font-medium transition-colors bg-qt-black-4 text-qt-gray-8 group-focus-within:text-qt-blue-2"
+          class="block pt-[10px] text-lg font-medium transition-colors text-qt-gray-8 group-focus-within:text-qt-blue-2 bg-qt-black-4"
         >
           Title
         </span>
@@ -70,30 +70,30 @@
         class="mt-2 text-sm font-[425] text-qt-warning"
       >
         <div *ngIf="controls['title'].hasError('required')">
-          Title is required
+          Title is required.
         </div>
         <div *ngIf="controls['title'].hasError('maxlength')">
-          Title must be less or equal than 25 characters
+          Title must be less or equal than {{ maximumTitleLength }} characters.
         </div>
       </div>
     </div>
 
     <div>
       <label
-        class="block rounded-xl border-qt-gray-9 border-[2.8px] px-3 cursor-text group focus-within:border-qt-blue"
+        class="block rounded-xl border-qt-gray-9 border-[2.8px] px-3 cursor-text group focus-within:border-qt-blue bg-qt-black-4"
         [ngClass]="{
           'border-qt-warning': isSubmitted && controls['description'].errors
         }"
       >
         <span
-          class="block pt-[10px] text-lg font-medium transition-colors bg-qt-black-4 text-qt-gray-8 group-focus-within:text-qt-blue-2"
+          class="block pt-[10px] text-lg font-medium transition-colors text-qt-gray-8 group-focus-within:text-qt-blue-2 bg-qt-black-4"
         >
           Description
         </span>
         <textarea
           class="w-full pb-1 mt-[6px] text-lg font-medium text-white bg-transparent border-transparent resize-none focus:outline-none transition-colors"
           formControlName="description"
-          rows="3"
+          rows="4"
         ></textarea>
       </label>
       <div
@@ -101,16 +101,17 @@
         class="mt-2 text-sm font-[425] text-qt-warning"
       >
         <div *ngIf="controls['description'].hasError('maxlength')">
-          Description must be less or equal than 250 characters
+          Description must be less or equal than
+          {{ maximumDescriptionLength }} characters.
         </div>
       </div>
     </div>
 
     <button
       type="submit"
-      class="w-full py-3 font-[550] transition-transform bg-qt-blue-2 px-5 text-qt-black-4 rounded-xl active:scale-95 text-base"
+      class="w-full py-3 font-[550] transition-transform bg-qt-blue-2 px-5 text-qt-black rounded-xl active:scale-95 text-base"
     >
       Upload
     </button>
   </form>
-</article>
+</div>

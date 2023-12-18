@@ -3,11 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { FilePondModule, registerPlugin } from 'ngx-filepond';
-import * as FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-registerPlugin(FilePondPluginFileValidateType);
+import { FilePondModule } from 'ngx-filepond';
 
-import { NewComponent } from './new.component';
+import { NewComponent } from './pages/new/new.component';
 import { BrandModule } from 'src/app/shared/components/brand/brand.module';
 
 @NgModule({

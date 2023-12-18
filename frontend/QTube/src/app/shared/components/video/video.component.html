@@ -1,6 +1,6 @@
 <section class="transition-colors rounded-[9px] cursor-pointer">
   <a [routerLink]="['/watch', slug]">
-    <figure class="relative block w-full">
+    <figure>
       <img
         [src]="thumbnail"
         alt="Thumbnail"
@@ -29,6 +29,15 @@
       </button>
 
       <div class="dialog-content">
+        <a class="block w-full" [routerLink]="['/update', slug]">
+          <app-horizontal-content
+            [flavour]="'dialog'"
+            [src]="'edit.svg'"
+            [alt]="'Edit icon'"
+            [width]="'w-6'"
+            [text]="'Edit video'"
+          ></app-horizontal-content>
+        </a>
         <button class="w-full" type="button" (click)="delete()">
           <app-horizontal-content
             [flavour]="'dialog'"

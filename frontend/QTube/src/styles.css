@@ -85,7 +85,7 @@ html {
 }
 
 .filepond--panel-root {
-  background-color: transparent !important;
+  background-color: #212121 !important;
 
   border: 2.8px dashed #4d4d4d !important;
 }

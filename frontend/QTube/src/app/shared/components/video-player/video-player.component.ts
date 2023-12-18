@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-video-player',
@@ -6,11 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./video-player.component.css'],
 })
 export class VideoPlayerComponent {
-  // videoPlayerScriptElement: HTMLScriptElement;
+  @Input()
+  src = '';
 
-  constructor() {
-    // this.videoPlayerScriptElement = document.createElement('script');
-    // this.videoPlayerScriptElement.src = 'assets/js/components/videoPlayer.js';
-    // document.body.appendChild(this.videoPlayerScriptElement);
-  }
+  @Input()
+  classes = '';
 }
