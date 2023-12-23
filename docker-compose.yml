@@ -1,0 +1,39 @@
+services:  
+  mysql:
+      image: mysql:8.0
+      environment:
+        MYSQL_ROOT_PASSWORD: root_password
+        MYSQL_DATABASE: qtube_db
+        MYSQL_USER: user
+        MYSQL_PASSWORD: password
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./mysql:/var/lib/mysql
+      healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 5s
+        retries: 160
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  angular:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: >
+      sh -c "npm install && 
+             npm start"
+    volumes:
+      - ./frontend/QTube:/app
+    ports:
+      - "4200:4200"

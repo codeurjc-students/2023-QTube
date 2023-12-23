@@ -15,7 +15,6 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.Optional;
 
-
 @RestController
 @RequestMapping("/api/")
 public class VideoRestController {
@@ -27,7 +26,7 @@ public class VideoRestController {
 
     @PostMapping("videos")
     public ResponseEntity<Object> save(@Valid @ModelAttribute UploadVideoDTO uploadVideoDTO,
-                                       BindingResult bindingResult) throws IOException {
+            BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {
             Collection<String> messages = RestUtils.messages(bindingResult);
             return ResponseEntity.badRequest().body(messages);
@@ -66,8 +65,8 @@ public class VideoRestController {
 
     @PutMapping("videos/{slug}")
     public ResponseEntity<Object> update(@PathVariable String slug,
-                                         @Valid @ModelAttribute UpdateVideoDTO updateVideoDTO,
-                                         BindingResult bindingResult) {
+            @Valid @ModelAttribute UpdateVideoDTO updateVideoDTO,
+            BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             Collection<String> messages = RestUtils.messages(bindingResult);
             return ResponseEntity.badRequest().body(messages);

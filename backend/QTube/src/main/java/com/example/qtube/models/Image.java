@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "image_slug_uk", columnNames = "slug"))
 @Getter

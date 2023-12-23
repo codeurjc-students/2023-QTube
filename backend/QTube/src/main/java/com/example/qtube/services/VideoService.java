@@ -17,7 +17,6 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
 @Service
 public class VideoService {
     private final VideoRepository videoRepository;
@@ -25,8 +24,8 @@ public class VideoService {
     private final ImageService imageService;
 
     public VideoService(VideoRepository videoRepository,
-                        ResourceService resourceService,
-                        ImageService imageService) {
+            ResourceService resourceService,
+            ImageService imageService) {
         this.videoRepository = videoRepository;
         this.resourceService = resourceService;
         this.imageService = imageService;
